@@ -1,0 +1,681 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 0px !important;
+            font-family: Arial, sans-serif;
+            font-size: 14
+            border: 0px solid #dddddd; 
+            color: #362b36;
+        }
+        img {
+            width: 42px;
+            height:42px;
+            align: left;
+            margin: 0px 50px;
+        }
+        
+        div {
+            page-break-inside: auto;
+            page-break-after: auto;
+        }
+        
+        table {
+            border-collapse: collapse;
+            word-wrap: break-word;
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-spacing: 0.2rem;
+            table-layout: fixed;
+        }
+        
+        table thead {
+            display: table-header-group;
+        }
+        
+        table tfoot {
+            display: table-footer-group;
+        }
+        
+        th {
+            height: 2rem;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background-color: #d7ebf9;
+            padding-left: 0.2rem;
+        }
+        
+        td {
+            height: 1rem;
+            padding: 0.2rem;
+        }
+        
+        table, th, td {
+            border: 1px solid #d9d9d9;
+            text-align: left;
+        }
+        
+        p {
+            font-size: 1 rem;
+            width: 95%;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        span, td {
+            font-size: 0.8rem;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+        }
+        
+        h3 {
+            font-size: 1rem;
+        }
+        
+        h4 {
+            font-size: 0.8rem;
+        }
+        
+        .new-page {
+            page-break-after: always;
+        }
+        
+        .compatible {
+            text-align: left;
+        }
+        
+        .incompatible {
+            color: red;
+            text-align: left;
+        }
+        
+        .manual-rewritable {
+            color: orange;
+            text-align: left;
+        }
+        
+        .auto-rewritable {
+            color: #c3cb5c;
+            text-align: left;
+        }
+        
+        .critical {
+            color: maroon;
+            text-align: left;
+        }
+        
+        .error {
+            color: red;
+            text-align: left;
+        }
+        
+        .warning {
+            color: orange;
+            text-align: left;
+        }
+        
+        .info {
+            color: #c4cc31;
+            text-align: left;
+        }
+        
+        .ok {
+            color: green;
+            text-align: left;
+        }
+        
+        .unknown {
+            color: purple;
+            text-align: left;
+        }
+        
+        .logo {
+            width: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .note {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            background-color: #EEE;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            border-left: 0.6rem solid #1b7ab1;
+        }
+        
+        .note-header {
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        
+        .note-paragraph {
+            font-size: 15px;
+            margin-left: 0;
+        }
+        
+        .title-h1-header {
+            padding-top: 300px;
+        }
+        
+        .title-h2-header {
+            padding-top: 1rem;
+        }
+        
+        .title-page-date {
+            margin-top: 1rem;
+            margin-bottom: 7rem;
+            color: #333;
+        }
+        
+        .source-instance-details-section {
+            margin-top: 0.5rem;
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .source-instance-details-subsection {
+            margin-top: 0.2rem;
+            font-size: 1rem;
+        }
+        
+        .sql-statements-section {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .sql-statements-subsection {
+            margin-top: 0.2rem;
+            font-size: 0.8rem;
+        }
+        
+        .contents-section {
+            width: 100%;
+            margin-left: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        .solid-border {
+            border-top: 0.01rem solid;
+            margin: 0 auto;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            margin-left: 0.3rem;
+            width: 20%;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                font-family: Arial, sans-serif;
+            }
+            div {
+                page-break-inside: auto;
+                page-break-after: avoid;
+            }
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+            table {
+                page-break-inside: auto;
+            }
+            table thead {
+                display: table-header-group;
+            }
+            table tfoot {
+                display: table-footer-group;
+            }
+        }
+    </style></head><body><div style="display: flex; align-items: center; justify-content: left; margin-left: -40px;"><img src="customer_report/sap.gif" alt="Company Logo" style="width: 100px; height: 50px; margin-right: 10px;"><h1 style="font-size: 2rem; margin: 0px; color: rgb(51, 51, 51);">XSA to CAP Migration Report</h1></div><div></div><div><div class="section"><p>Generated on: 2024-10-15 08:33 </p></div><div class="section"><h2>1. About</h2><p>This section describes the Hana Cloud Compatible DB Artifacts migrated from XS Advanced, as well as any limitations or differences in behavior, where applicable.</p></div><div class="section">
+            <h2>2.Migration Status</h2>
+            <p class="highlight">HANA native artifacts such as 'hdbtable', 'hdbcalculationviews', 'hdbview', and 'hdbfunctions' will not be read by CDS. To make these objects recognizable to CDS, respective proxy files are created with certain limitations. For more information on this,please check the <a href="https://help.sap.com/docs/hana-cloud/sap-hana-cloud-overview-guide/sap-hana-cloud-overview-guide" style="color: blue;">Hana Cloud Documentation</a>.</p>
+            <p class="highlight">These Proxy entities are created under their respective folders with the tag Proxy_*.cds</p>
+            <p>In calculation Views unsupported data types date(), day(), time() and counter datatype ( Integer ) are converted into respective supported data types daydate(), daytime(), secondtime() and counter datatype ( BIGINT ) .</p>
+            <p>While transitioning to CDS, the migration process involves renaming tables. Consequently, all other HANA artifacts that use these tables or views are also updated.</p>
+            <p>Table type definitions are not supported in Hana Cloud. Hence, during the migration, respective .hdbtabletype definitions are created. </p>
+            <p>The following features are currently out of scope: </p>
+            <ul>
+                <li>Converting xsodata into cap service definition</li>
+                <li> Converting “xsjs","xsjslib" into cap nodejs</li>
+                <li> Creating proxy cds for cross container schema</li>
+                <li> Following Artifacts are not currently supported '.hdbreptask', '.hdbvirtualtable', '.hdbflowgraph'</li>
+            </ul>
+            <p>When creating a Level Hierarchy in a calculation view for SAP HANA Cloud, the Node Style option defaults to Name Path; Level Name or Name Only are not allowed.</p>
+        </div><div class="section"><h2>3. Migration Results</h2></div><div class="section"><h3>Artifact Type: hdbcalculationview</h3><table><thead>
+        <tr>
+            <th>Source File Name</th>
+            <th>Target File Name</th>
+            <th>Warnings &amp; Errors</th>                        
+        </tr>
+    </thead><tbody><tr>
+                        <td>BUYER.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_BUYER.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>CUSTOMER_DISCOUNT_BY_RANKING_AND_REGION.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_CUSTOMER_DISCOUNT_BY_RANKING_AND_REGION.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>GET_COUNTRIES.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_COUNTRIES.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>GET_PARTNER_ROLES.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_PARTNER_ROLES.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PO_BASIC.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_BASIC.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PO_HEADER_EN.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_HEADER_EN.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PO_HEADER_ONLY.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_HEADER_ONLY.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PO_ITEM.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_ITEM.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PROD.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PROD.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PRODUCT_SALE_PRICE.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCT_SALE_PRICE.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PRODUCT.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCT_SALE_PRICE.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PRODUCTS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCTS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PURCHASE_COMMON_CURRENCY.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_COMMON_CURRENCY.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PURCHASE_DETAILS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_DETAILS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PURCHASE_ORDERS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_ORDERS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_DETAILS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_DETAILS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_ORDER_HEADER_W_BUYER.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_HEADER_W_BUYER.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_ORDER_LITE.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_LITE.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_ORDER_RANKING_AND_DISCOUNT_SQL.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_RANKING_AND_DISCOUNT_SQL.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_ORDER_RANKING.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_RANKING_AND_DISCOUNT_SQL.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_ORDER_WORKLIST.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_WORKLIST.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_OVERVIEW_WO_CURR_CONV_OPT.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALES_YEAR_COMPARISON.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_YEAR_COMPARISON.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALESORDER_BASKET_ANALYSIS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_BASKET_ANALYSIS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALESORDER_DYNAMIC_JOIN.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_DYNAMIC_JOIN.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALESORDER_RANKING_AND_DISCOUNT.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_AND_DISCOUNT.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALESORDER_RANKING_SQL.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_SQL.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SALESORDER_RANKING.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_AND_DISCOUNT.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>BP_ADDRESS_DETAILS.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_BP_ADDRESS_DETAILS.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>PRODUCT_SALES.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_PRODUCT_SALES.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>REGION_PRODUCT.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_REGION_PRODUCT.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>REGION_SALES_BP.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_REGION_SALES_BP.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>SUPPLIER.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_SUPPLIER.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr><tr>
+                        <td>test.hdbcalculationview</td>
+                        <td></td>
+                        <td>
+                            <div style="color:orange;">proxy not created</div>
+                        </td>
+                    </tr><tr>
+                        <td>TIME_DIM.hdbcalculationview</td>
+                        <td>SAP_HANA_DEMOCONTENT_EPM_MODELS_TIME_DIM.cds</td>
+                        <td>
+                            No errors
+                        </td>
+                    </tr></tbody></table></div><div class="section"><h3>Artifact Type: hdbcds</h3><table><thead>
+        <tr>
+            <th>Source File Name</th>
+            <th>Target File Name</th>
+            <th>Warnings &amp; Errors</th>                        
+        </tr>
+    </thead><tbody><tr>
+                    <td>Conversions.hdbcds</td>
+                    <td>Conversions.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>Core.hdbcds</td>
+                    <td>Core.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>Jobs.hdbcds</td>
+                    <td>Jobs.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>JobsDemo.hdbcds</td>
+                    <td>JobsDemo.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>MD.hdbcds</td>
+                    <td>MD.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>MDViews.hdbcds</td>
+                    <td>MDViews.cds</td>
+                    <td>
+                        
+                <div style="color:red;">Element “Product_Id” has not been found (in entity:“MDViews.ProductsValueHelp”/column:“Product_Id”)</div>
+                <div>Total Errors: 2</div>
+                <a href="./logs/index.cds_1728981180072.errors.log#line=239" target="_blank" style="color:blue;">Click here to see error logs</a>
+            
+                    </td>
+                </tr><tr>
+                    <td>PO.hdbcds</td>
+                    <td>PO.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>POViews.hdbcds</td>
+                    <td>POViews.cds</td>
+                    <td>
+                        
+                <div style="color:red;">Element “ProductName” has not been found (in entity:“POViews.POItemConsumption”/column:“ProductName”)</div>
+                <div>Total Errors: 1</div>
+                <a href="./logs/index.cds_1728981180072.errors.log#line=209" target="_blank" style="color:blue;">Click here to see error logs</a>
+            
+                    </td>
+                </tr><tr>
+                    <td>Procedures.hdbcds</td>
+                    <td>Procedures.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>Product.hdbcds</td>
+                    <td>Product.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>PurchaseOrder.hdbcds</td>
+                    <td>PurchaseOrder.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>SO.hdbcds</td>
+                    <td>SO.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>User.hdbcds</td>
+                    <td>User.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>Util.hdbcds</td>
+                    <td>Util.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>annotations.hdbcds</td>
+                    <td>annotations.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>jsonExamples.hdbcds</td>
+                    <td>jsonExamples.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>log.hdbcds</td>
+                    <td>log.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>lrep.hdbcds</td>
+                    <td>lrep.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>MDShadow.hdbcds</td>
+                    <td>MDShadow.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>POShadow.hdbcds</td>
+                    <td>POShadow.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>SOShadow.hdbcds</td>
+                    <td>SOShadow.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>UtilShadow.hdbcds</td>
+                    <td>UtilShadow.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>POTextSearchViews.hdbcds</td>
+                    <td>POTextSearchViews.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>Procedures.hdbcds</td>
+                    <td>Procedures.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>UserData.hdbcds</td>
+                    <td>UserData.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr><tr>
+                    <td>UserViews.hdbcds</td>
+                    <td>UserViews.cds</td>
+                    <td>
+                        No errors
+                    </td>
+                </tr></tbody></table></div><div class="section"><h3>Artifact Type: hdbtable</h3><table><thead>
+        <tr>
+            <th>Source File Name</th>
+            <th>Target File Name</th>
+            <th>Warnings &amp; Errors</th>                        
+        </tr>
+    </thead><tbody><tr><td>Customers.hdbtable</td><td rowspan="1">Proxy_Table.cds</td><td rowspan="1">No errors</td></tr></tbody></table></div><div class="section"><h3>Artifact Type: hdbfunction</h3><table><thead>
+        <tr>
+            <th>Source File Name</th>
+            <th>Target File Name</th>
+            <th>Warnings &amp; Errors</th>                        
+        </tr>
+    </thead><tbody><tr><td>apply_discount.hdbfunction</td><td rowspan="16">Proxy_Hdbfunction.cds</td><td rowspan="16">No errors</td></tr><tr><td>count_char_mapper.hdbfunction</td></tr><tr><td>get_address_func.hdbfunction</td></tr><tr><td>get_buyer_city.hdbfunction</td></tr><tr><td>get_countries.hdbfunction</td></tr><tr><td>get_employees_by_name_filter.hdbfunction</td></tr><tr><td>get_full_name.hdbfunction</td></tr><tr><td>get_partner_roles.hdbfunction</td></tr><tr><td>get_po_counts.hdbfunction</td></tr><tr><td>getTableSize.hdbfunction</td></tr><tr><td>POTextSearch.hdbfunction</td></tr><tr><td>product_sale_price.hdbfunction</td></tr><tr><td>sales_order_ranking_and_discount.hdbfunction</td></tr><tr><td>sales_ranking.hdbfunction</td></tr><tr><td>SALESORDER_RANKING_AND_DISCOUNT_SQL.hdbfunction</td></tr><tr><td>tax_calculation.hdbfunction</td></tr><tr>
+                    <td>count_char_reducer.hdbfunction</td>
+                    <td>N/A</td>
+                    <td>
+                        <div style="color:orange;">missing input, hence no proxy</div>
+                    </td>
+                </tr></tbody></table></div><div class="section"><h3>Artifact Type: hdbview</h3><table><thead>
+        <tr>
+            <th>Source File Name</th>
+            <th>Target File Name</th>
+            <th>Warnings &amp; Errors</th>                        
+        </tr>
+    </thead><tbody><tr><td>active_customers.hdbview</td><td rowspan="1">Proxy_Hdbview.cds</td><td rowspan="1">No errors</td></tr></tbody></table></div><div class="section">
+        <h2>4.Post Migration Steps</h2>
+        <p class="highlight">Migration of DB Artifacts from XS to CAP is complete. However, please verify these steps post migration:</p>
+        <p></p><li>SQL syntax changes in procedure, ex: UPDATE FROM has to be changed into MERGE INTO, TRUNCATE statement with a DELETE FROM statement</li><p></p>
+        <p></p><li>Flowgraph, Reptask and Replication artifacts Changes are not covered.</li><p></p>
+        <p></p><li>Unsupported types and functions in calculation view ex: "CE_FUNCTION", “CACHE" etc, please check the <a href="https://help.sap.com/docs/hana-cloud/sap-hana-cloud-overview-guide/sap-hana-cloud-overview-guide" style="color: blue;">Hana Cloud documentation</a></li><p></p>
+        <p></p><li>Verify the cross container artifacts before deployment</li> <p></p>
+    </div></div></body></html>

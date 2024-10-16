@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_PARTNER_ROLES" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="GET_PARTNER_ROLES"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GET_PARTNER_ROLES" type="TABLE_FUNCTION" partitionedExecution="false">
+    <resourceUri>GET_PARTNER_ROLES</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="GET_PARTNER_ROLES">
+  <attributes>
+    <attribute id="PARTNERROLE" order="1" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="PARTNERDESC">
+      <descriptions defaultDescription="PARTNER ROLE"/>
+      <keyMapping schemaName="XC6BDDGY8KK5WVSD_OPENSAP_HANA5_EXAMPLE" columnObjectName="GET_PARTNER_ROLES" columnName="PARTNERROLE"/>
+    </attribute>
+    <attribute id="PARTNERDESC" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNER DESCRIPTION"/>
+      <keyMapping schemaName="XC6BDDGY8KK5WVSD_OPENSAP_HANA5_EXAMPLE" columnObjectName="GET_PARTNER_ROLES" columnName="PARTNERDESC"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

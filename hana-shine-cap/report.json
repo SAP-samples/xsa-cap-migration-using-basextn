@@ -1,0 +1,616 @@
+{
+  "hdbcalculationview": {
+    "OBJECTS": [
+      {
+        "source_fileName": "BUYER.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_BUYER.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "CUSTOMER_DISCOUNT_BY_RANKING_AND_REGION.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_CUSTOMER_DISCOUNT_BY_RANKING_AND_REGION.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "GET_COUNTRIES.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_COUNTRIES.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "GET_PARTNER_ROLES.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_PARTNER_ROLES.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PO_BASIC.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_BASIC.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PO_HEADER_EN.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_HEADER_EN.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PO_HEADER_ONLY.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_HEADER_ONLY.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PO_ITEM.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PO_ITEM.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PROD.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PROD.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PRODUCT_SALE_PRICE.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCT_SALE_PRICE.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PRODUCT.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCT_SALE_PRICE.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PRODUCTS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCTS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PURCHASE_COMMON_CURRENCY.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_COMMON_CURRENCY.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PURCHASE_DETAILS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_DETAILS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PURCHASE_ORDERS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_PURCHASE_ORDERS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_DETAILS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_DETAILS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_ORDER_HEADER_W_BUYER.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_HEADER_W_BUYER.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_ORDER_LITE.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_LITE.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_ORDER_RANKING_AND_DISCOUNT_SQL.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_RANKING_AND_DISCOUNT_SQL.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_ORDER_RANKING.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_RANKING_AND_DISCOUNT_SQL.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_ORDER_WORKLIST.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_ORDER_WORKLIST.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_OVERVIEW_WO_CURR_CONV_OPT.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALES_YEAR_COMPARISON.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_YEAR_COMPARISON.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_BASKET_ANALYSIS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_BASKET_ANALYSIS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_DYNAMIC_JOIN.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_DYNAMIC_JOIN.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_RANKING_AND_DISCOUNT.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_AND_DISCOUNT.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_RANKING_SQL.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_SQL.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_RANKING.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SALESORDER_RANKING_AND_DISCOUNT.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "BP_ADDRESS_DETAILS.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_BP_ADDRESS_DETAILS.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PRODUCT_SALES.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_PRODUCT_SALES.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "REGION_PRODUCT.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_REGION_PRODUCT.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "REGION_SALES_BP.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_SPATIAL_MODELS_REGION_SALES_BP.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SUPPLIER.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_SUPPLIER.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "test.hdbcalculationview",
+        "migrated_successfully": false,
+        "migrated_fileName": null,
+        "warnings_errors": [
+          {
+            "message": "proxy not created",
+            "link": "#"
+          }
+        ],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "TIME_DIM.hdbcalculationview",
+        "migrated_successfully": true,
+        "migrated_fileName": "SAP_HANA_DEMOCONTENT_EPM_MODELS_TIME_DIM.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      }
+    ]
+  },
+  "hdbcds": {
+    "OBJECTS": [
+      {
+        "source_fileName": "Conversions.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Conversions.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Core.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Core.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Jobs.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Jobs.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "JobsDemo.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "JobsDemo.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "MD.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "MD.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "MDViews.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "MDViews.cds",
+        "warnings_errors": [
+          {
+            "message": "Element “Product_Id” has not been found (in entity:“MDViews.ProductsValueHelp”/column:“Product_Id”)",
+            "link": "./logs/index.cds_1728981180072.errors.log#line=239",
+            "file": "index.cds_1728981180072.errors.log"
+          },
+          {
+            "message": "Element “Product_Name” has not been found (in entity:“MDViews.ProductsValueHelp”/column:“Product_Name”)",
+            "link": "./logs/index.cds_1728981180072.errors.log#line=247",
+            "file": "index.cds_1728981180072.errors.log"
+          }
+        ],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PO.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "PO.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "POViews.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "POViews.cds",
+        "warnings_errors": [
+          {
+            "message": "Element “ProductName” has not been found (in entity:“POViews.POItemConsumption”/column:“ProductName”)",
+            "link": "./logs/index.cds_1728981180072.errors.log#line=209",
+            "file": "index.cds_1728981180072.errors.log"
+          }
+        ],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Procedures.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Procedures.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Product.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Product.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "PurchaseOrder.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "PurchaseOrder.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SO.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "SO.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "User.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "User.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Util.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Util.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "annotations.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "annotations.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "jsonExamples.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "jsonExamples.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "log.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "log.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "lrep.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "lrep.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "MDShadow.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "MDShadow.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "POShadow.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "POShadow.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SOShadow.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "SOShadow.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "UtilShadow.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "UtilShadow.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "POTextSearchViews.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "POTextSearchViews.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "Procedures.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "Procedures.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "UserData.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "UserData.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "UserViews.hdbcds",
+        "migrated_successfully": true,
+        "migrated_fileName": "UserViews.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      }
+    ]
+  },
+  "hdbtable": {
+    "OBJECTS": [
+      {
+        "source_fileName": "Customers.hdbtable",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Table.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      }
+    ]
+  },
+  "hdbfunction": {
+    "OBJECTS": [
+      {
+        "source_fileName": "apply_discount.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "count_char_mapper.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "count_char_reducer.hdbfunction",
+        "migrated_successfully": false,
+        "migrated_fileName": null,
+        "warnings_errors": [
+          {
+            "message": "missing input, hence no proxy",
+            "link": "#"
+          }
+        ],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_address_func.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_buyer_city.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_countries.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_employees_by_name_filter.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_full_name.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_partner_roles.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "get_po_counts.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "getTableSize.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "POTextSearch.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "product_sale_price.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "sales_order_ranking_and_discount.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "sales_ranking.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "SALESORDER_RANKING_AND_DISCOUNT_SQL.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      },
+      {
+        "source_fileName": "tax_calculation.hdbfunction",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbfunction.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      }
+    ]
+  },
+  "hdbview": {
+    "OBJECTS": [
+      {
+        "source_fileName": "active_customers.hdbview",
+        "migrated_successfully": true,
+        "migrated_fileName": "Proxy_Hdbview.cds",
+        "warnings_errors": [],
+        "filetype": "source"
+      }
+    ]
+  }
+}
