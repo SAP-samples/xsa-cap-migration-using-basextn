@@ -182,17 +182,13 @@ And the following additional properties:
    
    **Note:** Ensure that the directory you select is a sub-directory of `/home/user/projects`.	
 
-<p align="center">
-<img width="545" alt="DU2" src="images\TargetDirectory.png">
-</p>
-
 9. Specify a unique name for the Target Folder, where the migration results will be saved. Once you've entered the name, click on Next.
 
 <p align="center">
 <img width="545" alt="end" src="images\TargetFolder.png">
 </p>
 
-10. In the "Schema" page, Enter the schema name of the containers, Once entered, click on Finish.
+10. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
 
 <p align="center">
 <img width="545" alt="end" src="images\schema.png">
@@ -209,7 +205,8 @@ Once the project is created, there are some adjustments we need to make manually
  1. For the HCO_DEMOCONTENT project, make the following changes:
     - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in HANA Cloud. Currently, this includes only `.hdbfulltextindex` files, which need to be handled manually so in this case, delete the unsupported_feature folder from `core-db/src/data` folder. 
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
-    - In the `core-db/cds/data/MDViews.cds` file, alias needs to be modified. So `![Product_Id]`, `![Product_Name]` and `ProductName` should be changed to `PRODUCT_ID`, `PRODUCT_NAME` and `PRODUCTNAME` respectively as they are defined like this in the entity definations. You can refer either the report or the log file in the logs folder for the line number for these changes.
+    - In the `core-db/cds/data/MDViews.cds` file, alias needs to be modified. So `![Product_Id]` and `![Product_Name]` should be changed to `PRODUCT_ID` and `PRODUCT_NAME` respectively as they are defined like this in the entity definations. You can refer either the report or the log file in the logs folder for the line number for these changes.
+    - Similarly, in `core-db/cds/data/POViews.cds` file, change the alias `ProductName` to `PRODUCTNAME`.
     - Replace the code in the `mta.yaml` with the below code. Replace `<Project Name>` with the name of your project.
    
       ```
