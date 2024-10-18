@@ -35,7 +35,7 @@ SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premis
 </p>
 
 ## Features Currently supported in SAP HANA Application Migration Assistant:
-For a detailed list of the features supported by the SAP HANA Application Migration Assistant, please refer to [this](supportedFeatures.md) link.
+For a detailed list of the features supported by the SAP HANA Application Migration Assistant, please refer to the [supportedFeatures](supportedFeatures.md) link.
 
 ## Features that are currently out of scope in SAP HANA Application Migration Assistant:
 
@@ -280,6 +280,9 @@ Once the project is created, there are some adjustments we need to make manually
    - Run the command `cf login -a < API_URL >` and input your username and password
 
 5. Right click on the mtar file inside mta_archives folder and select `Deploy MTA Archive`.
+
+## Data Migration
+For migration of data using the SAP HANA Application Migration Assistant, please refer to the [DataMigration](DataMigration.md) document.
 
 ## Learning Resources
 1. [The Self-Service Migration Tool for SAP HANA Cloud](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/self-service-migration-for-sap-hana-cloud-tool).
