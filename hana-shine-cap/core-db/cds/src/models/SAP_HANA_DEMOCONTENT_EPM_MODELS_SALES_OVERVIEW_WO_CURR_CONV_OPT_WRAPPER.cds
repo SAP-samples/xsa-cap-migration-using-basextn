@@ -1,0 +1,43 @@
+@cds.persistence.exists
+@cds.persistence.calcview
+entity SAP_HANA_DEMOCONTENT_EPM_MODELS_SALES_OVERVIEW_WO_CURR_CONV_OPT_WRAPPER {
+  key BILLINGSTATUS         : String(1)        @title: 'BILLINGSTATUS';
+  key COMPANYNAME           : String(80)       @title: 'COMPANYNAME';
+  key CURRENCY              : String(5)        @title: 'CURRENCY';
+  key DELIVERYSTATUS        : String(1)        @title: 'DELIVERYSTATUS';
+  key HISTORY_CREATEDBY     : String(10)       @title: 'HISTORY_CREATEDBY';
+  key LIFECYCLESTATUS       : String(1)        @title: 'LIFECYCLESTATUS';
+      NETAMOUNT             : Decimal(15, 2)   @title: 'NETAMOUNT';
+  key PARTNERID             : String(10)       @title: 'PARTNERID';
+      POSTING_DATE          : Date             @title: 'POSTING_DATE';
+  key PRODUCTID             : String(10)       @title: 'PRODUCTID';
+  key PRODUCTID_1           : String(10)       @title: 'PRODUCTID_1';
+  key PRODUCTPICURL         : String(255)      @title: 'PRODUCTPICURL';
+  key PRODUCT_CATEGORY      : hana.VARCHAR(40) @title: 'PRODUCT_CATEGORY';
+  key PRODUCT_CURRENCY      : String(5)        @title: 'PRODUCT_CURRENCY';
+  key PRODUCT_DESCRIPTION   : String(1024)     @title: 'PRODUCT_DESCRIPTION';
+  key PRODUCT_NAME          : String(1024)     @title: 'PRODUCT_NAME';
+      PRODUCT_PRICE         : Decimal(15, 2)   @title: 'PRODUCT_PRICE';
+  key PRODUCT_TYPECODE      : String(2)        @title: 'PRODUCT_TYPECODE';
+      PRODUCT_WEIGHTMEASURE : Decimal(13, 3)   @title: 'PRODUCT_WEIGHTMEASURE';
+  key PRODUCT_WEIGHTUNIT    : String(3)        @title: 'PRODUCT_WEIGHTUNIT';
+      QUANTITY              : Decimal(13, 3)   @title: 'QUANTITY';
+  key QUANTITYUNIT          : String(3)        @title: 'QUANTITYUNIT';
+      RM_AMOUNT_COMPLETED   : Decimal(15, 2)   @title: 'RM_AMOUNT_COMPLETED';
+      RM_AMOUNT_DELIVERED   : Decimal(15, 2)   @title: 'RM_AMOUNT_DELIVERED';
+      RM_AMOUNT_INPROCESS   : Decimal(15, 2)   @title: 'RM_AMOUNT_INPROCESS';
+      RM_AMOUNT_NEW         : Decimal(15, 2)   @title: 'RM_AMOUNT_NEW';
+      RM_AMOUNT_PAID        : Decimal(15, 2)   @title: 'RM_AMOUNT_PAID';
+      RM_AMOUNT_UNDELIVERED : Decimal(15, 2)   @title: 'RM_AMOUNT_UNDELIVERED';
+      RM_AMOUNT_UNPAID      : Decimal(15, 2)   @title: 'RM_AMOUNT_UNPAID';
+  key SALESORDERID          : String(10)       @title: 'SALESORDERID';
+  key SALESORDERITEM        : String(10)       @title: 'SALESORDERITEM';
+  key SUPPLIER_BUILDING     : String(10)       @title: 'SUPPLIER_BUILDING';
+  key SUPPLIER_CITY         : hana.VARCHAR(40) @title: 'SUPPLIER_CITY';
+  key SUPPLIER_COUNTRY      : String(3)        @title: 'SUPPLIER_COUNTRY';
+  key SUPPLIER_ID           : String(10)       @title: 'SUPPLIER_ID';
+  key SUPPLIER_POSTALCODE   : String(10)       @title: 'SUPPLIER_POSTALCODE';
+  key SUPPLIER_REGION       : String(4)        @title: 'SUPPLIER_REGION';
+  key SUPPLIER_STREET       : String(60)       @title: 'SUPPLIER_STREET';
+      TAXAMOUNT             : Decimal(15, 2)   @title: 'TAXAMOUNT';
+};

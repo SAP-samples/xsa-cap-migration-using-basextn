@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SAP_HANA_DEMOCONTENT_EPM_MODELS_PRODUCT_SALE_PRICE" applyPrivilegeType="NONE" dataCategory="DEFAULT" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="PRODUCT_SALE_PRICE"/>
+<localVariables>
+  <variable id="PRODUCT_ID" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="NVARCHAR" length="10">
+      <valueDomain type="empty"/>
+      <selection/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="#PRODUCT_SALE_PRICE">
+    <targetVariable name="PRODUCT_ID" resourceUri="UNDEFINED_PRODUCT_SALE_PRICE"/>
+    <localVariable>PRODUCT_ID</localVariable>
+  </mapping>
+</variableMappings>
+<dataSources>
+  <DataSource id="PRODUCT_SALE_PRICE" type="TABLE_FUNCTION">
+    <resourceUri>PRODUCT_SALE_PRICE</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="PRODUCT_SALE_PRICE">
+  <attributes>
+    <attribute id="PRODUCTID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID"/>
+      <keyMapping schemaName="" columnObjectName="PRODUCT_SALE_PRICE" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="CATEGORY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CATEGORY"/>
+      <keyMapping schemaName="" columnObjectName="PRODUCT_SALE_PRICE" columnName="CATEGORY"/>
+    </attribute>
+    <attribute id="PRICE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRICE"/>
+      <keyMapping schemaName="" columnObjectName="PRODUCT_SALE_PRICE" columnName="PRICE"/>
+    </attribute>
+    <attribute id="SALEPRICE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALEPRICE"/>
+      <keyMapping schemaName="" columnObjectName="PRODUCT_SALE_PRICE" columnName="SALEPRICE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

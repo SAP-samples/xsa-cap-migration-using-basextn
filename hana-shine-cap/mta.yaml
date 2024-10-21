@@ -1,0 +1,52 @@
+_schema-version: 3.3.0
+ID: hana-shine-cap
+version: 1.0.0
+description: A migrated CAP Project.
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: hana-shine-cap-deployer0
+    type: hdb
+    path: gen/core-db
+    deployed-after:
+      - hana-shine-cap-deployer1
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: hana-shine-cap-db0
+        properties:
+          TARGET_CONTAINER: ~{hdi-container-name}
+      - name: hana-shine-cap-db1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: hdi-user-service
+          service: ~{user-container-name}
+  - name: hana-shine-cap-deployer1
+    type: hdb
+    path: gen/user-db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: hana-shine-cap-db1
+resources:
+  - name: hana-shine-cap-db0
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-container-name: ${service-name}
+  - name: hana-shine-cap-db1
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      service-name: hana-shine-cap-db1
+    properties:
+      user-container-name: ${service-name}

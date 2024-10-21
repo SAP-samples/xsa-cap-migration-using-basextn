@@ -1,0 +1,8 @@
+{
+    "USERDATA_USER": {
+        "target": {
+            "grantor": "hdi-user-service",
+            "object": "USERDATA_USER"
+        }
+    }
+}

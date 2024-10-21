@@ -1,0 +1,15 @@
+FUNCTION "GET_PARTNER_ROLES" ( )
+	RETURNS table (PARTNERROLE NVARCHAR(3), PARTNERDESC NVARCHAR(40)) 
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+	Write your function logic 
+ *****************************/ 
+	declare mytab table(PARTNERROLE NVARCHAR(3), PARTNERDESC NVARCHAR(40)) ;
+	mytab.PARTNERROLE[1] = '1';
+	mytab.PARTNERROLE[2] = '2';
+	mytab.PARTNERDESC[1] = 'BUYER';
+	mytab.PARTNERDESC[2] = 'SUPPLIER';
+	return :mytab;
+END;

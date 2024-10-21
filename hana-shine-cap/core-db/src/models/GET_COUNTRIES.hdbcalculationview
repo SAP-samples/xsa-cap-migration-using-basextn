@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP_HANA_DEMOCONTENT_EPM_MODELS_GET_COUNTRIES" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="GET_COUNTRIES"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GET_COUNTRIES" type="TABLE_FUNCTION">
+    <resourceUri>GET_COUNTRIES</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="GET_COUNTRIES">
+  <attributes>
+    <attribute id="CODE" order="1" descriptionColumnName="NAME" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CODE"/>
+      <keyMapping schemaName="P0AGP1QEVK4SZTIQ_OPENSAP_HANA5_EXAMPLE" columnObjectName="GET_COUNTRIES" columnName="CODE"/>
+    </attribute>
+    <attribute id="NAME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME"/>
+      <keyMapping schemaName="P0AGP1QEVK4SZTIQ_OPENSAP_HANA5_EXAMPLE" columnObjectName="GET_COUNTRIES" columnName="NAME"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
