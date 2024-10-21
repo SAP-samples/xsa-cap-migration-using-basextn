@@ -154,47 +154,41 @@ And the following additional properties:
   <img width="544" alt="DestinationList" src="images\destinationList.png">
 </p>
 
-4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials.
+4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials. Click on the Next button.
 	
 <p align="center">
-<img width="545" alt="Login" src="images\login.png">
-</p>
+<img width="545" alt="Login" src="images\Destinations.png">
+</p> 
 
-5. To proceed, click on the Next button.  
-		
-<p align="center">
-<img width="545" alt="LoggedIn" src="images\loginEnabled.png">
-</p>
-
-6. In the "Source Type" page, select your cloned project from the drop down. In this case, its `hana-shine-xsa`.
+5. In the "Source Type" page, select your cloned project from the drop down. In this case, its `hana-shine-xsa`.
 
 <p align="center">
 <img width="545" alt="selectType" src="images\selectType.png">
 </p>
   
-7. Select the DB Folders(It can be multiple). In this case it will be `core-db` and `user-db`.
+6. Select the DB Folders(It can be multiple). In this case it will be `core-db` and `user-db`.
 
 <p align="center">
 <img width="545" alt="DU1" src="images\dbFolder.png">
 </p>
 
-8. Choose the target directory. This is where the migration results will be stored.
+7. Choose the target directory. This is where the migration results will be stored.
    
    **Note:** Ensure that the directory you select is a sub-directory of `/home/user/projects`.	
 
-9. Specify a unique name for the Target Folder, where the migration results will be saved. Once you've entered the name, click on Next.
+8. Specify a unique name for the Target Folder, where the migration results will be saved. Once you've entered the name, click on Next.
 
 <p align="center">
 <img width="545" alt="end" src="images\TargetFolder.png">
 </p>
 
-10. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
+9. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
 
 <p align="center">
 <img width="545" alt="end" src="images\schema.png">
 </p>
 
-11. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
+10. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
 
 <p align="center">
 <img width="545" alt="end" src="images\end.png">
