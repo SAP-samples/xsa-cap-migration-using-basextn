@@ -46,7 +46,7 @@
   
 - Removes full text index which is no longer supported in hana-cloud.
 
-- A folder named 'unsupported_feature' has been created by the extension to contain file extensions that are not supported in HANA Cloud. Currently, this includes only .hdbfulltextindex files, which need to be handled manually.
+- A folder named 'unsupported_feature' has been created by the extension to contain file extensions that are not supported in HANA Cloud.
   
 - Creates skeleton file for calculation views.
   

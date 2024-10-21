@@ -154,47 +154,41 @@ And the following additional properties:
   <img width="544" alt="DestinationList" src="images\destinationList.png">
 </p>
 
-4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials.
+4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials. Click on the Next button.
 	
 <p align="center">
-<img width="545" alt="Login" src="images\login.png">
-</p>
+<img width="545" alt="Login" src="images\Destinations.png">
+</p> 
 
-5. To proceed, click on the Next button.  
-		
-<p align="center">
-<img width="545" alt="LoggedIn" src="images\loginEnabled.png">
-</p>
-
-6. In the "Source Type" page, select your cloned project from the drop down. In this case, its `hana-shine-xsa`.
+5. In the "Source Type" page, select your cloned project from the drop down. In this case, its `hana-shine-xsa`.
 
 <p align="center">
 <img width="545" alt="selectType" src="images\selectType.png">
 </p>
   
-7. Select the DB Folders(It can be multiple). In this case it will be `core-db` and `user-db`.
+6. Select the DB Folders(It can be multiple). In this case it will be `core-db` and `user-db`.
 
 <p align="center">
 <img width="545" alt="DU1" src="images\dbFolder.png">
 </p>
 
-8. Choose the target directory. This is where the migration results will be stored.
+7. Choose the target directory. This is where the migration results will be stored.
    
    **Note:** Ensure that the directory you select is a sub-directory of `/home/user/projects`.	
 
-9. Specify a unique name for the Target Folder, where the migration results will be saved. Once you've entered the name, click on Next.
+8. Specify a unique name for the Target Folder, where the migration results will be saved. Once you've entered the name, click on Next.
 
 <p align="center">
 <img width="545" alt="end" src="images\TargetFolder.png">
 </p>
 
-10. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
+9. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
 
 <p align="center">
 <img width="545" alt="end" src="images\schema.png">
 </p>
 
-11. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
+10. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
 
 <p align="center">
 <img width="545" alt="end" src="images\end.png">
@@ -203,7 +197,7 @@ And the following additional properties:
 ## Step-5: Post Migration Changes
 Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the Assistant.
  1. For the hana-shine-xsa project, make the following changes:
-    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in HANA Cloud. Currently, this includes only `.hdbfulltextindex` files, which need to be handled manually so in this case, delete the unsupported_feature folder from `core-db/src/data` folder. 
+    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. 
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
     - In the `core-db/cds/data/MDViews.cds` file, alias needs to be modified. So `![Product_Id]` and `![Product_Name]` should be changed to `PRODUCT_ID` and `PRODUCT_NAME` respectively as they are defined like this in the entity definations. You can refer either the report or the log file in the logs folder for the line number for these changes.
     - Similarly, in `core-db/cds/data/POViews.cds` file, change the alias `ProductName` to `PRODUCTNAME`.
