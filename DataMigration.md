@@ -83,7 +83,7 @@ Once the necessary privileges are assigned, follow the below steps:
 2. When the migration wizard opens, select the Data Migration Configuration Template as shown below:
 
 <p align="center">
-<img src="images\DataMigrationTemplate.png" width="600" height="400">
+<img src="images\DataMigrationTemplateNew.png" width="600" height="400">
 </p>
 
 
