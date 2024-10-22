@@ -28,7 +28,6 @@ SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-sh
 
 SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
 
-### Solution Diagram of SAP HANA Application Migration Assistant
 
 <p align="center">
 <img src="images\SolutionDiagramNew.png">
@@ -65,7 +64,7 @@ To successfully migrate the SHINE sample application using the SAP HANA Applicat
 
 #### **Note:** 
 ```
-1. This sample covers only the migration of the database artifacts from SAP Hana XSA Database to SAP Hana Cloud.
+1. This sample covers only the migration of the database artifacts from SAP Hana XS Advanced Database to SAP Hana Cloud.
 2. The migration steps should be tested in a development environment before production.
 ```
 
