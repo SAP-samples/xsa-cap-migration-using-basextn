@@ -3,7 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/xsa-cap-migration-using-basextn)](https://api.reuse.software/info/github.com/SAP-samples/xsa-cap-migration-using-basextn)
 
 ## Description
-The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XSA database artifacts to the corresponding target CAP compliance database artifacts are listed.
+The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target CAP compliance database artifacts are listed.
 
 ## Introduction
 SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) is a demo application. It includes the following features: 
@@ -26,7 +26,7 @@ SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-sh
   - Analytical Privilege
   - Usage of Table Functions in CDS views
 
-SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XSA to the Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
+SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
 
 ### Solution Diagram of SAP HANA Application Migration Assistant
 
@@ -48,7 +48,7 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
 4. Following Artifacts are not currently supported '.hdbreptask', '.hdbvirtualtable', '.hdbflowgraph'
 
 ## Requirements
-- XSA on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.
+- XS Advanced on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.
 - SAP Business Technology Platform subaccount with `SAP Hana Cloud` and `SAP Hana Schemas and HDI Containers` service instances .
 - SAP Business Application Studio Subscription.
 - SAP Cloud Connector
@@ -133,7 +133,7 @@ And the following additional properties:
    
 4. Navigate to the folder by clicking on File -> Open Folder. Enter the path `/home/user/projects/` and click on OK.
    
-5. Clone the XSA Source application to this folder using the Terminal.
+5. Clone the XS Advanced Source application to this folder using the Terminal.
    
 6. Once the folder opens, you can select the SAP HANA Application Migration Assistant from the Command Palette (You can access the Command Palette from View -> Command Palette).
 
@@ -141,7 +141,7 @@ And the following additional properties:
 
 1. Open the the Command Palette and type "SAP HANA Application Migration Assistant" and select the command when it appears.
 	
-2. When the Migration Assistant Wizard opens, select the migration path. Since we are migrating from XSA to CAP, select `XSA to CAP` as your migration path.		
+2. When the Migration Assistant Wizard opens, select the migration path. Since we are migrating from XS Advanced to CAP, select `XSA to CAP` as your migration path.		
 
 <p align="center">
   <img width="536" alt="HomeScreen" src="images\homescreen.png">
@@ -197,7 +197,7 @@ And the following additional properties:
 ## Step-5: Post Migration Changes
 Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the Assistant.
  1. For the hana-shine-xsa project, make the following changes:
-    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. 
+    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. 
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
     - Replace the code in the `mta.yaml` with the below code. Replace `<Project Name>` with the name of your project.
    
