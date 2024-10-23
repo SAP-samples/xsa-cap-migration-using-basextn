@@ -3,7 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/xsa-cap-migration-using-basextn)](https://api.reuse.software/info/github.com/SAP-samples/xsa-cap-migration-using-basextn)
 
 ## Description
-The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target CAP compliance database artifacts are listed.
+The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target CAP compliance database artifacts are listed.
 
 ## Introduction
 SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) is a demo application. It includes the following features: 
@@ -26,7 +26,7 @@ SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-sh
   - Analytical Privilege
   - Usage of Table Functions in CDS views
 
-SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
+SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the SAP Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
 
 
 <p align="center">
@@ -126,7 +126,7 @@ And the following additional properties:
 	
 1. In the sub-account where you created the destination, establish a subscription to SAP Business Application Studio (BAS).
 
-2. Open the BAS from the subscription and select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration Assistant` Extension to help with migration. Finally, click on "Create Dev Space".
+2. Open SAP BAS from the subscription and select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration Assistant` Extension to help with migration. Finally, click on "Create Dev Space".
    
 3. Wait for the status of your newly created Dev Space to change to "Running". Once it's running, you can open it by clicking on the name of the Dev space that you just created.
    
@@ -196,7 +196,7 @@ And the following additional properties:
 ## Step-5: Post Migration Changes
 Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the Assistant.
  1. For the hana-shine-xsa project, make the following changes:
-    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. 
+    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
     - Replace the code in the `mta.yaml` with the below code. Replace `<Project Name>` with the name of your project.
    
