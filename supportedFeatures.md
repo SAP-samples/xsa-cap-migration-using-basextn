@@ -8,7 +8,7 @@
   
 - As part of the transition to CAP compliant format, the notation in view definitions should be modified from "" to ![]. This specific [delimiter](https://cap.cloud.sap/docs/cds/cdl#delimited-identifiers) enhances the reliability of processing in CAP CDS.
   
-- Coverts HANA CDS Datatypes to CAP CDS Datatypes.
+- Converts HANA CDS Datatypes to CAP CDS Datatypes.
     | HANA CDS | CAP CDS |
     |----------|---------|
     |LocalDate|Date|
@@ -32,7 +32,7 @@
 - Converts the technical configuration and element configuration to be CAP compliant, accomplished through the use of “@sql.append”. 
 - Remove Series Entity which is not supported in CAP CDS.
   
-- Replaceing the annotation  @Comment  for table and element with “/** */ “to CAP Compliant Format and adding parameters required in package.json.
+- Replacing the annotation  @Comment  for table and element with “/** */ “to CAP Compliant Format and adding parameters required in package.json.
   
 - Remove Schema Configuration.
   
