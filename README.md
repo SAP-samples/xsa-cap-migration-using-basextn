@@ -38,9 +38,9 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
 
 ## Features that are currently out of scope in SAP HANA Application Migration Assistant:
 
-1. Converting xsodata into cap service definition
+1. Converting xsodata into SAP CAP service definition
    
-2. Converting “xsjs”,”xsjslib” into cap nodejs
+2. Converting “xsjs”,”xsjslib” into SAP CAP nodejs
    
 3. Creating proxy cds for cross container schema
    
