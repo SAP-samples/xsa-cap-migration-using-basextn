@@ -3,7 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/xsa-cap-migration-using-basextn)](https://api.reuse.software/info/github.com/SAP-samples/xsa-cap-migration-using-basextn)
 
 ## Description
-The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target CAP compliance database artifacts are listed.
+The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target SAP CAP compliance database artifacts are listed.
 
 ## Introduction
 SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) is a demo application. It includes the following features: 
@@ -194,7 +194,7 @@ And the following additional properties:
 </p>
 
 ## Step-5: Post Migration Changes
-Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the Assistant.
+Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the SAP HANA Application Migration Assistant.
  1. For the hana-shine-xsa project, make the following changes:
     - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
@@ -267,7 +267,7 @@ Once the project is created, there are some adjustments we need to make manually
    
 3. Next, log in to your Cloud Foundry account using the following steps:
 
-   - Open a new terminal in the Business Application Studio
+   - Open a new terminal in the SAP Business Application Studio
    - Run the command `cf login -a < API_URL >` and input your username and password
 
 5. Right click on the mtar file inside mta_archives folder and select `Deploy MTA Archive`.
