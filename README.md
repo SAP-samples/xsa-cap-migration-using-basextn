@@ -184,7 +184,7 @@ And the following additional properties:
 9. In the "Schema" page, Enter the schema name of the containers. Once entered, click on Finish.
 
 <p align="center">
-<img width="545" alt="end" src="images\schema.png">
+<img width="545" alt="end" src="images\schema1.png">
 </p>
 
 10. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
