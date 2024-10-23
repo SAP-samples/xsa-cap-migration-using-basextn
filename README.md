@@ -181,7 +181,7 @@ And the following additional properties:
 <img width="545" alt="end" src="images\TargetFolder.png">
 </p>
 
-9. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
+9. In the "Schema" page, Enter the schema name of the containers. Once entered, click on Finish.
 
 <p align="center">
 <img width="545" alt="end" src="images\schema.png">
