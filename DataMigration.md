@@ -2,7 +2,7 @@
 Migrating from SAP HANA database to SAP HANA Cloud requires a dedicated user in your SAP HANA source database.
 A dedicated user is required for the migration to run for which the user must be created or necessary privileges must be granted to an existing user in your SAP HANA source database. Follow the below steps to assign the privileges:
 
-1. Login into your source HANA system With Administrator User.
+1. Login into your source SAP HANA system With Administrator User.
 
 2. Open the SQL Console.
 
@@ -14,7 +14,7 @@ A dedicated user is required for the migration to run for which the user must be
    CREATE USER <username> PASSWORD <password> NO FORCE_FIRST_PASSWORD_CHANGE;
    ```
 
-4. Grant the necessary privileges to the data migration user. To do that, run the following script in an SQL Console in your source HANA system:
+4. Grant the necessary privileges to the data migration user. To do that, run the following script in an SQL Console in your source SAP HANA system:
 
    ```
    GRANT SELECT ON _SYS_REPO.DELIVERY_UNITS TO <username>;
@@ -43,13 +43,13 @@ A dedicated user is required for the migration to run for which the user must be
    GRANT SELECT ON SCHEMA _SYS_BI TO <username>;
    ```
 
-5. The data migration user should also have the necessary privileges for each source schema that has to be migrated. To grant that execute the following query:
+5. The data migration user should also have the necessary privileges for each source schema that has been migrated. To grant that execute the following query:
    
    ```
    GRANT SELECT ON SCHEMA "<SCHEMA_NAME>" TO <username>;
    ```
    
-6. **Note:** If the Source HANA Database is in the Neo environment, then execute the following query:
+6. **Note:** If the Source SAP HANA Database is in the Neo environment, then execute the following query:
    
    ```
    GRANT SAP_INTERNAL_HANA_SUPPORT TO <username>; -- Only required when migrating SAP HANA databases in the Neo environment
@@ -58,7 +58,7 @@ A dedicated user is required for the migration to run for which the user must be
    
 **Note:** 
    
-   To grant the necessary privileges for migration using the HANA Cloud self-service migration tool, the target HDI container schema must be accessible by the database user performing the migration. Use the following SQL commands to grant these privileges and run it in the target HANA Cloud database system:
+   To grant the necessary privileges for migration using the SAP HANA Cloud self-service migration tool, the target HDI container schema must be accessible by the database user performing the migration. Use the following SQL commands to grant these privileges and run it in the target SAP HANA Cloud database system:
    
    ```
    CREATE LOCAL TEMPORARY COLUMN TABLE #PRIVILEGES LIKE _SYS_DI.TT_SCHEMA_PRIVILEGES;
@@ -68,7 +68,7 @@ CALL <TARGET_SCHEMA>#DI.GRANT_CONTAINER_SCHEMA_PRIVILEGES(#PRIVILEGES, _SYS_DI.T
 DROP TABLE #PRIVILEGES;
    ```
    
-Replace <DB_USER> with the appropriate HANA Cloud database user and <TARGET_SCHEMA> with the target schema name.
+Replace <DB_USER> with the appropriate SAP HANA Cloud database user and <TARGET_SCHEMA> with the target schema name.
 
    
 Once the necessary privileges are assigned, follow the below steps:
@@ -83,7 +83,7 @@ Once the necessary privileges are assigned, follow the below steps:
 2. When the migration wizard opens, select the Data Migration Configuration Template as shown below:
 
 <p align="center">
-<img src="images\DataMigrationTemplate.png" width="600" height="400">
+<img src="images\DataMigrationTemplateNew.png" width="600" height="400">
 </p>
 
 
@@ -110,7 +110,7 @@ Once the necessary privileges are assigned, follow the below steps:
 </p>
 
 
-7. Enter the Hana cloud target schema in the next field.
+7. Enter the SAP HANA cloud target schema in the next field.
 
 8. In the next field as shown below, enter the data migration user name which was created earlier and for which the necessary privileges were granted. Make sure the user already exists else a error message will be thrown to create the user and assign necessary privileges.
 
@@ -120,9 +120,11 @@ Once the necessary privileges are assigned, follow the below steps:
 
 9. Click on the finish button.
 
+10. Once the finish button is clicked, the content of the DataMigration.sql file in your project is executed and the pop-up message, "Data migration Configuration completed successfully" appears if there are no errors.
 
 
-After completing the above steps, proceed with the Self Service Migration tool to migrate your SAP HANA database to SAP HANA Cloud. Use the Data Migration User created in Step 3 to start the migration process.
+
+After completing the above steps, proceed with the Self Service Migration tool to migrate your data from SAP HANA database to SAP HANA Cloud. Use the Data Migration User created in Step 3 to start the migration process.
 
 ## For more details, refer to the official documentation:
   

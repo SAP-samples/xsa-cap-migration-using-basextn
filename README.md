@@ -3,7 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/xsa-cap-migration-using-basextn)](https://api.reuse.software/info/github.com/SAP-samples/xsa-cap-migration-using-basextn)
 
 ## Description
-The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XSA database artifacts to the corresponding target CAP compliance database artifacts are listed.
+The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database. In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target SAP CAP compliance database artifacts are listed.
 
 ## Introduction
 SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) is a demo application. It includes the following features: 
@@ -26,9 +26,8 @@ SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-sh
   - Analytical Privilege
   - Usage of Table Functions in CDS views
 
-SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XSA to the Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
+SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the SAP Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
 
-### Solution Diagram of SAP HANA Application Migration Assistant
 
 <p align="center">
 <img src="images\SolutionDiagramNew.png">
@@ -39,16 +38,16 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
 
 ## Features that are currently out of scope in SAP HANA Application Migration Assistant:
 
-1. Converting xsodata into cap service definition
+1. Converting xsodata into SAP CAP service definition
    
-2. Converting “xsjs”,”xsjslib” into cap nodejs
+2. Converting “xsjs”,”xsjslib” into SAP CAP nodejs
    
 3. Creating proxy cds for cross container schema
    
 4. Following Artifacts are not currently supported '.hdbreptask', '.hdbvirtualtable', '.hdbflowgraph'
 
 ## Requirements
-- XSA on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.
+- XS Advanced on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.
 - SAP Business Technology Platform subaccount with `SAP Hana Cloud` and `SAP Hana Schemas and HDI Containers` service instances .
 - SAP Business Application Studio Subscription.
 - SAP Cloud Connector
@@ -65,7 +64,7 @@ To successfully migrate the SHINE sample application using the SAP HANA Applicat
 
 #### **Note:** 
 ```
-1. This sample covers only the migration of the database artifacts from SAP Hana XSA Database to SAP Hana Cloud.
+1. This sample covers only the migration of the database artifacts from SAP Hana XS Advanced Database to SAP Hana Cloud.
 2. The migration steps should be tested in a development environment before production.
 ```
 
@@ -127,13 +126,13 @@ And the following additional properties:
 	
 1. In the sub-account where you created the destination, establish a subscription to SAP Business Application Studio (BAS).
 
-2. Open the BAS from the subscription and select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration Assistant` Extension to help with migration. Finally, click on "Create Dev Space".
+2. Open SAP BAS from the subscription and select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration Assistant` Extension to help with migration. Finally, click on "Create Dev Space".
    
 3. Wait for the status of your newly created Dev Space to change to "Running". Once it's running, you can open it by clicking on the name of the Dev space that you just created.
    
 4. Navigate to the folder by clicking on File -> Open Folder. Enter the path `/home/user/projects/` and click on OK.
    
-5. Clone the XSA Source application to this folder using the Terminal.
+5. Clone the XS Advanced Source application to this folder using the Terminal.
    
 6. Once the folder opens, you can select the SAP HANA Application Migration Assistant from the Command Palette (You can access the Command Palette from View -> Command Palette).
 
@@ -141,7 +140,7 @@ And the following additional properties:
 
 1. Open the the Command Palette and type "SAP HANA Application Migration Assistant" and select the command when it appears.
 	
-2. When the Migration Assistant Wizard opens, select the migration path. Since we are migrating from XSA to CAP, select `XSA to CAP` as your migration path.		
+2. When the Migration Assistant Wizard opens, select the migration path. Since we are migrating from XS Advanced to CAP, select `XSA to CAP` as your migration path.		
 
 <p align="center">
   <img width="536" alt="HomeScreen" src="images\homescreen.png">
@@ -182,10 +181,10 @@ And the following additional properties:
 <img width="545" alt="end" src="images\TargetFolder.png">
 </p>
 
-9. In the "Schema" page, Enter the schema name of the containers (For multiple containers, it should be a comma separated values), Once entered, click on Finish.
+9. In the "Schema" page, Enter the schema name of the containers. Once entered, click on Finish.
 
 <p align="center">
-<img width="545" alt="end" src="images\schema.png">
+<img width="545" alt="end" src="images\schema1.png">
 </p>
 
 10. Once you see the pop-up notification at the bottom right corner of your screen, it means that the migration process is underway. This notification will keep you updated on all the steps that follow. At the end of the process, a CAP project with the revised database artifacts will be created. Additionally, a `report.html` file will be generated within the project. This file contains detailed information about your project's migration.
@@ -195,12 +194,11 @@ And the following additional properties:
 </p>
 
 ## Step-5: Post Migration Changes
-Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the Assistant.
+Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the SAP HANA Application Migration Assistant.
  1. For the hana-shine-xsa project, make the following changes:
-    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. 
+    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
-    - In the `core-db/cds/data/MDViews.cds` file, alias needs to be modified. So `![Product_Id]` and `![Product_Name]` should be changed to `PRODUCT_ID` and `PRODUCT_NAME` respectively as they are defined like this in the entity definations. You can refer either the report or the log file in the logs folder for the line number for these changes.
-    - Similarly, in `core-db/cds/data/POViews.cds` file, change the alias `ProductName` to `PRODUCTNAME`.
+    - In `core-db/cds/data/POViews.cds` file, change the alias `ProductName` to `PRODUCTNAME`.
     - Replace the code in the `mta.yaml` with the below code. Replace `<Project Name>` with the name of your project.
    
       ```
@@ -260,7 +258,7 @@ Once the project is created, there are some adjustments we need to make manually
       
       **Note:**
       In the Shine demo application, since we have multiple containers, we need to define service replacements in the above format to connect the containers. If the project has only one container, the `mta.yaml` file created by the extension should work as expected, and no manual changes are needed.
- 2. Currently, changes to Flowgraph, Reptask, and Replication artifacts are not covered. You will need to modify these manually. Unsupported types and functions in the calculation view such as "CE_FUNCTION", "CACHE", etc., need to be noted. Please refer to the [HANA Cloud Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/checks-performed-by-migration-tool) for more details on how to handle these.
+ 2. Currently, changes to Flowgraph, Reptask, and Replication artifacts are not covered. You will need to modify these manually. Unsupported types and functions in the calculation view such as "CE_FUNCTION", "CACHE", etc., need to be noted. Please refer to the [SAP HANA Cloud Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/checks-performed-by-migration-tool) for more details on how to handle these.
     
 ## Step-6: Deployment of the Migrated database artifacts.
 
@@ -270,7 +268,7 @@ Once the project is created, there are some adjustments we need to make manually
    
 3. Next, log in to your Cloud Foundry account using the following steps:
 
-   - Open a new terminal in the Business Application Studio
+   - Open a new terminal in the SAP Business Application Studio
    - Run the command `cf login -a < API_URL >` and input your username and password
 
 5. Right click on the mtar file inside mta_archives folder and select `Deploy MTA Archive`.
