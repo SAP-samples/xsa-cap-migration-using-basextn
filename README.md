@@ -259,6 +259,8 @@ Once the project is created, there are some adjustments we need to make manually
       **Note:**
       In the Shine demo application, since we have multiple containers, we need to define service replacements in the above format to connect the containers. If the project has only one container, the `mta.yaml` file created by the extension should work as expected, and no manual changes are needed.
  2. Currently, changes to Flowgraph, Reptask, and Replication artifacts are not covered. You will need to modify these manually. Unsupported types and functions in the calculation view such as "CE_FUNCTION", "CACHE", etc., need to be noted. Please refer to the [SAP HANA Cloud Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/checks-performed-by-migration-tool) for more details on how to handle these.
+ 3. Series entity is not supported in Hana Cloud so they will be removed by the extension. Please check [Migration Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/series-data%22) for more information.
+ 4. For HdbSynonym, HdbSynonymconfig and Hdbrole files, please check target object parameters before deployment.
     
 ## Step-6: Deployment of the Migrated database artifacts.
 
