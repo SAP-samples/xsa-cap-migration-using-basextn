@@ -17,8 +17,8 @@ A dedicated user is required for the migration to run for which the user must be
 4. Grant the necessary privileges to the data migration user. To do that, run the following script in an SQL Console in your source SAP HANA system:
 
    ```
-   GRANT SELECT ON _SYS_REPO.DELIVERY_UNITS TO <username>;
-   GRANT SELECT ON _SYS_REPO.ACTIVE_OBJECT TO <username>; 
+   GRANT SELECT ON _SYS_REPO.DELIVERY_UNITS TO <username>; -- Only required for migration from XS Classic
+   GRANT SELECT ON _SYS_REPO.ACTIVE_OBJECT TO <username>; -- Only required for migration from XS Classic
    GRANT CATALOG READ TO <username>;
    GRANT INIFILE ADMIN TO <username>;
    GRANT TRUST ADMIN TO <username>;
