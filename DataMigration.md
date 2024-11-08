@@ -43,7 +43,7 @@ A dedicated user is required for the migration to run for which the user must be
    GRANT SELECT ON SCHEMA _SYS_BI TO <username>;
    ```
 
-5. The data migration user should also have the necessary privileges for each source schema that has been migrated. To grant that execute the following query:
+5. For each schema that you want to migrate, excluding the schemas created by SAP HANA Schemas and HDI Containers service instances, the owner of the schema or any user who has the permissions to grant the required privileges must execute the following statement to grant these permissions to the data migration user:
    
    ```
    GRANT SELECT ON SCHEMA "<SCHEMA_NAME>" TO <username>;
