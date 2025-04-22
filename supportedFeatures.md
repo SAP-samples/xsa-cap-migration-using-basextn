@@ -1,7 +1,7 @@
 ## Features Currently supported in SAP HANA Application Migration Assistant:
 - Creating an initial SAP CAP application involves enhancing project configuration for SAP HANA Cloud and XSUAA, generating an MTA deployment descriptor, odata v2 support , sqlite support and Build Configuration.
   
-- Converting "hdbconstraint", "hdbindex", "hdbview", "hdbtable", "hdbsequence", "hdbprocedure", "hdbtablefunction", "hdbfunction", "hdbstructuredprivilege", "hdblibrary", "hdbcalculationview", "hdbanalyticprivilege",
+- Converting "hdbconstraint", "hdbindex", "hdbview", "hdbtable", "hdbsequence", "hdbprocedure", "hdbtablefunction", "hdbfunction", "hdbstructuredprivilege", "hdblibrary", "hdbcalculationview", "hdbanalyticprivilege", "hdbflowgraph"
 "hdbrole", "hdbsynonymconfig", "hdbtabledata", artifacts into SAP CAP (Cloud Application Programming) compliant format.
 
 - Converting the file extensions from "hdbcds" files into "cds" for SAP CAP compliance.
@@ -19,17 +19,24 @@
     |decimal|Decimal|
     |hana.CHAR|hana.VARCHAR|
   
+- Converts unsupported SAP Hana onprem sql dataypes to SAP Hana cloud data types.
+  
 - Replacing @OData.publish:true with @cds.autoexpose for enhanced functionality.
   
 - Creates “.hdbtabletype” files corresponding to each table type definition.
   
 - Converts temporary entities to regular entities in SAP CAP CDS.
+
+- Creates fuzzy search index and index based on technical configurations in hdbcds.
   
 - Relocating all the CDS files from their individual directories, for instance, src/, to the corresponding db/cds folder in the SAP CAP project. Additionally, an index.cds file referring to these CDS files is created in the src folder.
   
 - Log file generation using CDS Compile.
   
-- Converts the technical configuration and element configuration to be SAP CAP compliant, accomplished through the use of “@sql.append”. 
+- Converts the technical configuration and element configuration to be SAP CAP compliant, accomplished through the use of “@sql.append”.
+
+- Row table creation using @sql.prepend
+  
 - Remove Series Entity which is not supported in SAP CAP CDS.
   
 - Replacing the annotation  @Comment  for table and element with “/** */ “to SAP CAP Compliant Format and adding parameters required in package.json.
@@ -47,8 +54,6 @@
 - Removes full text index which is no longer supported in SAP HANA Cloud.
 
 - A folder named 'unsupported_feature' has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud.
-  
-- Creates skeleton file for calculation views.
   
 - Formatting the cds files is done with @sap/cds-lsp.
   
@@ -74,3 +79,4 @@
     - TEXT is changed to NCLOB
     - SHORTTEXT is changed to NVARCHAR
     - CHAR is changed to VARCHAR
+    - BINTEXT is changed to NCLOB
