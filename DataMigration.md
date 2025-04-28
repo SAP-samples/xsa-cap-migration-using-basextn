@@ -104,6 +104,7 @@ Once the necessary privileges are assigned, follow the below steps:
 5. To proceed, click on the next button.
 
 6. In the Data Migration Configuration Page of the wizard, select the Data migration configuration sql file from the drop down menu, which would have been created as part of your migrated projects.
+   **NOTE** During migration, separate data migration configuration files will be created for each schema.
 
 <p align="center">
 <img src="images\sqlDM.png" width="750" height="400">
