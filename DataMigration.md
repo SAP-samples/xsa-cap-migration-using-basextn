@@ -2,6 +2,8 @@
 Migrating from SAP HANA database to SAP HANA Cloud requires a dedicated user in your SAP HANA source database.
 A dedicated user is required for the migration to run for which the user must be created or necessary privileges must be granted to an existing user in your SAP HANA source database. Follow the below steps to assign the privileges:
 
+ **Note:** Ensure that the column order in the source schema for each individual table matches the column order in the corresponding target table
+ 
 1. Login into your source SAP HANA system With Administrator User.
 
 2. Open the SQL Console.
