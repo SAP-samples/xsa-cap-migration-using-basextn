@@ -48,7 +48,11 @@ A dedicated user is required for the migration to run for which the user must be
 5. For each schema that you want to migrate, excluding the schemas created by SAP HANA Schemas and HDI Containers service instances, the owner of the schema or any user who has the permissions to grant the required privileges must execute the following statement to grant these permissions to the data migration user:
    
    ```
-   GRANT SELECT ON SCHEMA "<SCHEMA_NAME>" TO <username>;
+   CREATE LOCAL TEMPORARY COLUMN TABLE #PRIVILEGES LIKE _SYS_DI.TT_SCHEMA_PRIVILEGES;
+INSERT INTO #PRIVILEGES(PRIVILEGE_NAME, PRINCIPAL_SCHEMA_NAME, PRINCIPAL_NAME) 
+VALUES ('SELECT', '', '<MIGRATION_USER>');
+CALL <SOURCE_SCHEMA>#DI.GRANT_CONTAINER_SCHEMA_PRIVILEGES(#PRIVILEGES, _SYS_DI.T_NO_PARAMETERS, ?, ?, ?);
+DROP TABLE #PRIVILEGES;
    ```
    
 6. **Note:** If the Source SAP HANA Database is in the Neo environment, then execute the following query:
