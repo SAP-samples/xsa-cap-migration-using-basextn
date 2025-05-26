@@ -49,13 +49,14 @@ A dedicated user is required for the migration to run for which the user must be
    
    ```
    CREATE LOCAL TEMPORARY COLUMN TABLE #PRIVILEGES LIKE _SYS_DI.TT_SCHEMA_PRIVILEGES;
-INSERT INTO #PRIVILEGES(PRIVILEGE_NAME, PRINCIPAL_SCHEMA_NAME, PRINCIPAL_NAME) 
-VALUES ('SELECT', '', '<MIGRATION_USER>');
-CALL <SOURCE_SCHEMA>#DI.GRANT_CONTAINER_SCHEMA_PRIVILEGES(#PRIVILEGES, _SYS_DI.T_NO_PARAMETERS, ?, ?, ?);
-DROP TABLE #PRIVILEGES;
+   INSERT INTO #PRIVILEGES(PRIVILEGE_NAME, PRINCIPAL_SCHEMA_NAME, PRINCIPAL_NAME) 
+   VALUES ('SELECT', '', '<MIGRATION_USER>');
+   CALL <SOURCE_SCHEMA>#DI.GRANT_CONTAINER_SCHEMA_PRIVILEGES(#PRIVILEGES, _SYS_DI.T_NO_PARAMETERS, ?, ?, ?);
+   DROP TABLE #PRIVILEGES;
    ```
-   
-6. **Note:** If the Source SAP HANA Database is in the Neo environment, then execute the following query:
+   Replace <MIGRATION_USER> with the appropriate SAP HANA XSA Migration user and <SOURCE_SCHEMA> with the Source schema name.
+
+7. **Note:** If the Source SAP HANA Database is in the Neo environment, then execute the following query:
    
    ```
    GRANT SAP_INTERNAL_HANA_SUPPORT TO <username>; -- Only required when migrating SAP HANA databases in the Neo environment
