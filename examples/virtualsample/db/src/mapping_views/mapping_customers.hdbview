@@ -1,0 +1,7 @@
+
+VIEW vtpoc_demo_mapping_customers AS SELECT
+"customer_id" as CUSTOMER_ID,
+"customer_name" as CUSTOMER_NAME,
+"email" as EMAIL,
+"country" as COUNTRY
+FROM "VT_CUSTOMERS"

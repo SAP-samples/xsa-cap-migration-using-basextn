@@ -1,0 +1,6 @@
+VIEW vtpoc_demo_mapping_orders AS SELECT
+"order_id" as ORDER_ID,
+"customer_id" as CUSTOMER_ID,
+"order_date" as ORDER_DATE,
+"status" as STATUS
+FROM "VT_ORDERS"
