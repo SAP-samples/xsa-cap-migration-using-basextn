@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_order_summary" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" mdsCubeConversionExecution="AT_LOADING_TIME">
+<descriptions defaultDescription="cv_order_summary"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="VT_ORDERS">
+    <resourceUri>VT_ORDERS</resourceUri>
+  </DataSource>
+  <DataSource id="VT_CUSTOMERS">
+    <resourceUri>VT_CUSTOMERS</resourceUri>
+  </DataSource>
+  <DataSource id="VT_ORDER_ITEMS">
+    <resourceUri>VT_ORDER_ITEMS</resourceUri>
+  </DataSource>
+  <DataSource id="VT_PRODUCTS">
+    <resourceUri>VT_PRODUCTS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="vt_orders">
+    <viewAttributes>
+      <viewAttribute id="order_id"/>
+      <viewAttribute id="order_date"/>
+      <viewAttribute id="customer_id"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="VT_ORDERS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="vt_customers">
+    <viewAttributes>
+      <viewAttribute id="customer_id"/>
+      <viewAttribute id="customer_name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="VT_CUSTOMERS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="vt_order_items">
+    <viewAttributes>
+      <viewAttribute id="order_id"/>
+      <viewAttribute id="product_id"/>
+      <viewAttribute id="quantity"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="VT_ORDER_ITEMS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="vt_products">
+    <viewAttributes>
+      <viewAttribute id="product_id"/>
+      <viewAttribute id="product_name"/>
+      <viewAttribute id="unit_price"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="VT_PRODUCTS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="order_id"/>
+      <viewAttribute id="order_date"/>
+      <viewAttribute id="customer_name"/>
+      <viewAttribute hidden="true" id="JOIN$customer_id$customer_id"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="vt_orders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_id" source="order_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_date" source="order_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$customer_id$customer_id" source="customer_id"/>
+    </input>
+    <input node="vt_customers">
+      <mapping xsi:type="Calculation:AttributeMapping" target="customer_name" source="customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$customer_id$customer_id" source="customer_id"/>
+    </input>
+    <joinAttribute name="JOIN$customer_id$customer_id"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="order_id"/>
+      <viewAttribute id="order_date"/>
+      <viewAttribute id="customer_name"/>
+      <viewAttribute id="product_id"/>
+      <viewAttribute id="quantity"/>
+      <viewAttribute hidden="true" id="JOIN$order_id$order_id"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_id" source="order_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_date" source="order_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="customer_name" source="customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$order_id$order_id" source="order_id"/>
+    </input>
+    <input node="vt_order_items">
+      <mapping xsi:type="Calculation:AttributeMapping" target="product_id" source="product_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="quantity" source="quantity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$order_id$order_id" source="order_id"/>
+    </input>
+    <joinAttribute name="JOIN$order_id$order_id"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="customer_name"/>
+      <viewAttribute id="product_id"/>
+      <viewAttribute id="order_date"/>
+      <viewAttribute id="product_name"/>
+      <viewAttribute id="unit_price"/>
+      <viewAttribute id="quantity"/>
+      <viewAttribute id="order_id"/>
+      <viewAttribute hidden="true" id="JOIN$product_id$product_id"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="vt_products">
+      <mapping xsi:type="Calculation:AttributeMapping" target="product_name" source="product_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="unit_price" source="unit_price"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$product_id$product_id" source="product_id"/>
+    </input>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="customer_name" source="customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="product_id" source="product_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_date" source="order_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="quantity" source="quantity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="order_id" source="order_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$product_id$product_id" source="product_id"/>
+    </input>
+    <joinAttribute name="JOIN$product_id$product_id"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_3">
+  <attributes>
+    <attribute id="customer_name" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="customer_name"/>
+      <keyMapping columnObjectName="Join_3" columnName="customer_name"/>
+    </attribute>
+    <attribute id="product_id" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="product_id"/>
+      <keyMapping columnObjectName="Join_3" columnName="product_id"/>
+    </attribute>
+    <attribute id="order_date" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="order_date"/>
+      <keyMapping columnObjectName="Join_3" columnName="order_date"/>
+    </attribute>
+    <attribute id="product_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="product_name"/>
+      <keyMapping columnObjectName="Join_3" columnName="product_name"/>
+    </attribute>
+    <attribute id="unit_price" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="unit_price"/>
+      <keyMapping columnObjectName="Join_3" columnName="unit_price"/>
+    </attribute>
+    <attribute id="quantity" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="quantity"/>
+      <keyMapping columnObjectName="Join_3" columnName="quantity"/>
+    </attribute>
+    <attribute id="order_id" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="order_id"/>
+      <keyMapping columnObjectName="Join_3" columnName="order_id"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="total_amount" order="8" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Total amount"/>
+      <keyCalculation datatype="DECIMAL" expressionLanguage="SQL" length="15" scale="2">
+        <formula>&quot;quantity&quot; * &quot;unit_price&quot;</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="vt_orders" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-179" y="289"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="vt_customers" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-10" y="302"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="vt_order_items" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221" y="312"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="vt_products" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="559" y="340"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-160" y="192"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="vt_orders" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="145"/>
+    </shape>
+    <shape modelObjectName="vt_customers" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="164"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="95" y="236"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="vt_order_items" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="399" y="186"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape modelObjectName="vt_products" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

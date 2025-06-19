@@ -1,0 +1,8 @@
+{
+  "TEST_VT_TABLE_DEMO_CDS": {
+    "target": {
+      "object": "TEST_VT_TABLE_DEMO",
+      "revalidate": false
+    }
+  }
+}

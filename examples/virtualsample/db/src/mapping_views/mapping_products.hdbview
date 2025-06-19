@@ -1,0 +1,6 @@
+VIEW vtpoc_demo_mapping_products AS SELECT
+"product_id" as PRODUCT_ID,
+"product_name" as PRODUCT_NAME,
+"unit_price" as UNIT_PRICE,
+"category" as CATEGORY
+FROM "VT_PRODUCTS"
