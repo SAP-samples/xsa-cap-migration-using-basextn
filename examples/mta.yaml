@@ -1,0 +1,33 @@
+ID: virtualsample
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: Virtualdb
+   type: hdb
+   path: db
+   requires:
+    - name: hdi_Virtualdb
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name}
+    - name: cross-container-service-1
+      group: SERVICE_REPLACEMENTS
+      properties:
+        key: REMOTE_ACCESS
+        service: ~{the-service-name}
+
+resources:
+ - name: hdi_Virtualdb
+   parameters:
+      config:
+         schema: VirtualPOC
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+   
+ - name: cross-container-service-1
+   parameters:
+      service-name: cross-container-virtualpoc
+   properties:
+      the-service-name: ${service-name}
+   type: org.cloudfoundry.existing-service

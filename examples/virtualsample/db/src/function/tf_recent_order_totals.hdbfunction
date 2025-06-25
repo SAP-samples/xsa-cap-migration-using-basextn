@@ -1,0 +1,27 @@
+FUNCTION tf_recent_order_totals()
+RETURNS TABLE (
+    order_id NVARCHAR(20),
+    customer_name NVARCHAR(100),
+    order_date DATE,
+    total_amount DECIMAL(18,2)
+)
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+AS
+BEGIN
+    RETURN
+    SELECT
+        o."order_id" as ORDER_ID,
+        c."customer_name" as CUSTOMER_NAME,
+        o."order_date" as ORDER_DATE,
+        SUM(i."quantity" * p."unit_price") AS TOTAL_AMOUNT
+    FROM
+        "VT_ORDERS" o
+    JOIN "VT_CUSTOMERS" c ON o."customer_id" = c."customer_id"
+    JOIN "VT_ORDER_ITEMS" i ON o."order_id" = i."order_id"
+    JOIN "VT_PRODUCTS" p ON i."product_id" = p."product_id"
+    WHERE
+        o."order_date" >= ADD_DAYS(CURRENT_DATE, -90)
+    GROUP BY
+        o."order_id", c."customer_name", o."order_date";
+END;
