@@ -1,82 +1,122 @@
 ## Features Currently supported in SAP HANA Application Migration Assistant:
-- Creating an initial SAP CAP application involves enhancing project configuration for SAP HANA Cloud and XSUAA, generating an MTA deployment descriptor, odata v2 support , sqlite support and Build Configuration.
-  
-- Converting "hdbconstraint", "hdbindex", "hdbview", "hdbtable", "hdbsequence", "hdbprocedure", "hdbtablefunction", "hdbfunction", "hdbstructuredprivilege", "hdblibrary", "hdbcalculationview", "hdbanalyticprivilege", "hdbflowgraph"
-"hdbrole", "hdbsynonymconfig", "hdbtabledata", artifacts into SAP CAP (Cloud Application Programming) compliant format.
 
-- Converting the file extensions from "hdbcds" files into "cds" for SAP CAP compliance.
-  
-- As part of the transition to SAP CAP compliant format, the notation in view definitions should be modified from "" to ![]. This specific [delimiter](https://cap.cloud.sap/docs/cds/cdl#delimited-identifiers) enhances the reliability of processing in SAP CAP CDS.
-  
-- Converts SAP HANA CDS Datatypes to SAP CAP CDS Datatypes.
-    |SAP HANA CDS |SAP CAP CDS |
-    |----------|---------|
-    |LocalDate|Date|
-    |LocalTime|Time|
-    |UTCDateTime|DateTime|
-    |UTCTimestamp|Timestamp|
-    |BinaryFloat|Double|
-    |decimal|Decimal|
-    |hana.CHAR|hana.VARCHAR|
-  
-- Converts unsupported SAP Hana onprem sql dataypes to SAP Hana cloud data types.
-  
-- Replacing @OData.publish:true with @cds.autoexpose for enhanced functionality.
-  
-- Creates “.hdbtabletype” files corresponding to each table type definition.
-  
-- Converts temporary entities to regular entities in SAP CAP CDS.
+**Project Configuration Features During Migration**
 
-- Creates fuzzy search index and index based on technical configurations in hdbcds.
-  
-- Relocating all the CDS files from their individual directories, for instance, src/, to the corresponding db/cds folder in the SAP CAP project. Additionally, an index.cds file referring to these CDS files is created in the src folder.
-  
-- Log file generation using CDS Compile.
-  
-- Converts the technical configuration and element configuration to be SAP CAP compliant, accomplished through the use of “@sql.append”.
+The following features and changes have been applied as part of the project configuration during the migration process:
 
-- Row table creation using @sql.prepend
-  
-- Remove Series Entity which is not supported in SAP CAP CDS.
-  
-- Replacing the annotation  @Comment  for table and element with “/** */ “to SAP CAP Compliant Format and adding parameters required in package.json.
-  
-- Remove Schema Configuration.
-  
-- Updates .hdinamespace file with the proper configuration.
-  
-- Rename the other Hana database artifacts to SAP CAP CDS supported format. Specifically, entities should be converted to uppercase and any instances of “.”, “::” should be replaced with “_”.
-  
-- Copy the UI/ web folder into SAP CAP Application.
-  
-- Removes empty directories.
-  
-- Removes full text index which is no longer supported in SAP HANA Cloud.
+    - Enhancing project configuration for SAP HANA Cloud and XSUAA
+    - Generating an MTA deployment descriptor
+    - Enabling OData V2 support
+    - Adding SQLite support
+    - Setting up build configuration
+    - Configuring comments
 
-- A folder named 'unsupported_feature' has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud.
+**HANA native artifacts:**
+
+such as `hdbtable`, `hdbcalculationviews`, `hdbview`, and `hdbfunctions` are not directly read by CDS. Make the Object Known to CDS, proxy files are created with certain limitations.  
+  _For more information, refer to the [SAP CAP Documentation](https://help.sap.com/docs/HANA_Cloud)._
+
+**HANA Native Artifact Conversion: .hdbcds to CAP CDS**
+
+The migration assistant converts HANA native artifact `.hdbcds` files into SAP CAP CDS format. During this process:
+
+- The tool parses the `.hdbcds` file and rewrites the content into CAP CDS syntax.
+- HANA Cloud and CAP-supported datatypes are mapped accordingly
+- Unsupported or deprecated datatypes are either omitted or replaced with the closest CAP equivalent.
+- Entity definitions, associations, and annotations are translated to CAP CDS constructs.
+- The resulting CDS files are compatible with SAP HANA Cloud and CAP data models.
+
+This ensures seamless migration of your HANA data definitions into the CAP environment, preserving structure and datatype compatibility.
+
+**Proxy entities:** 
+
+for calculation views are created in their respective folders under the `CDS folder`.  
+For `hdbtables`, `hdbviews`, and `hdbfunctions`, proxies are created in the CDS folder with the prefix `Proxy_` followed by the object type and     the extension `.cds`.
+
+**Data type conversion** in calculation views:  
+  - `date()` → `daydate()`  
+  - `day()` → `daydate()`  
+  - `time()` → `daytime()`  
+  - `counter` (Integer) → `BIGINT`
+
+**Table renaming:**  
+  During migration, tables are renamed. All dependent SAP HANA Cloud artifacts are updated accordingly.For example, a table originally named `sap.hana.democontent::product.item` in HANA XSA is renamed to `SAP_HANA_DEMOCONTENT_PRODUCT_ITEM` in sap CAP CDS.
+
+**Table type definitions** are not supported in SAP CAP CDS.  
+  Hence `.hdbtabletype` definitions are created and placed in the `types` folder in the migrated project.
+
+**Calculation views with parameters:**  
+  If a parameter's datatype is not defined as a variable property, the proxy will default to `string`. Adjust manually if needed.
+
+**Series entity** is not supported in SAP HANA Cloud and will be converted to a regular entity. Please refer the [SAP HANA Cloud Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/series-data).
+
+**Handling Reserved Words and Identifiers:**  
+  If reserved words like `KEY` are used as elements in CDS entities, they are changed to `![key]`.If an entity name or element is defined using a string or double quotes (e.g., "id") are converted into `![id]`.
   
-- Formatting the cds files is done with @sap/cds-lsp.
-  
-- Renaming the annotations.
+  **Example:**  
+  Instead of: `entity "product item" { "id": String; }`  
+  Use: `entity ![product item] { ![id]: String; }`
 
-- Creating Proxy Table entities for SAP HANA Native object ".hdbtable".
+**@sql.append support:**  
+  The following configurations are supported using @sql.append in SAP CAP CDS: `Partitioning`, `Storagetype`, `Grouping`, and `Unload Priority`.
 
-- Creating Proxy Views for SAP HANA Native object ".hdbcalculationview".
+**Indexes:**  
+  Based on the technical configuration in SAP HANA hdbcds, if indexes are enabled for a table, then respective index files are created under the `hdbindex` folder.
 
-- Creating Proxy Hdbview for SAP HANA Native object ".hdbview".
+**Fuzzy Search Indexes:**  
+  If fuzzy search is enabled on a table or column, corresponding fuzzy search index files are generated under the `hdbindex` folder.
+  - **Implicit Fuzzy Search Indexes:**  
+    Indexes that are automatically created by the system (such as primary key indexes) are considered implicit indexes and are handled by the database without explicit index files. In HANA 2.0, certain SQL types (like SHORTTEXT and TEXT) always had an implicit fulltext index, but in HANA Cloud, these require explicit fuzzy search index creation during migration.created fuzzy search/text indexes for SHORTTEXT and TEXT datatype elements.
+  - **Explicit Fuzzy Search Indexes:**  
+    Indexes that are specifically defined in the technical configuration are created as explicit index files under the `hdbindex` folder.
 
-- Creating Proxy Hdbfunction for SAP HANA Native object ".hdbtablefunction".
+**Full Text Index Removal:**  
+  Full text indexes, which are no longer supported in SAP HANA Cloud, are removed during the migration process. For cases involving Text Analysis or Text Mining, please refer to the post-migration steps.
 
-- Support for [type of](https://cap.cloud.sap/docs/cds/cdl#typereferences) operator is provided.
+**File Extension Conversion:**  
+  All file extensions are converted from `.hdbcds` to `.cds` for SAP CAP compliance.
 
-- Converting Join, Aggregation, Union and Projection in calculation views into supported format.
+**CDS Datatype Conversion:**  
+  The migration process converts SAP HANA CDS datatypes to SAP CAP CDS datatypes as follows:
+- LocalDate → Date
+- LocalTime → Time
+- UTCDateTime → DateTime
+- UTCTimestamp → Timestamp
+- BinaryFloat → Double
+- decimal → Decimal
+- hana.CHAR → hana.VARCHAR
 
-- In calculation Views unsupported data types date(), day(), time() and counter datatype ( Integer )  are converted into respective supported data types daydate(), daytime(), secondtime() and counter datatype ( BIGINT ) .
+**OData Annotation Update:**  
+  Replaced `@OData.publish:true` with `@cds.autoexpose` for enhanced functionality and alignment with SAP CAP best practices.
 
-- The SAP HANA Application Migration Assistant performs the following type conversions on these files: ".hdbtable", ".hdbprocedure", ".hdbfunction", ".hdbdropcreatetable", ".hdbtrigger", ".hdblibrary", ".hdbstructuredprivilege", ".hdbview", ".hdbindex", ".hdbconstraint", ".hdbtablefunction", ".hdbsequence" :
+**CDS File Relocation:**  
+  All CDS files are relocated from their individual directories (e.g., `src/`) to the corresponding `db/cds` folder in the SAP CAP project. Additionally, an `index.cds` file referring to these CDS files is created in the `src` folder.
 
-    - ALPHANUM is changed to NVARCHAR
-    - TEXT is changed to NCLOB
-    - SHORTTEXT is changed to NVARCHAR
-    - CHAR is changed to VARCHAR
-    - BINTEXT is changed to NCLOB
+**Row Table Creation:**  
+  Row table creation configuration is achieved by using the annotation `@sql.prepend`.
+
+**Comment Annotation Update:**  
+  The annotation `@Comment` for tables and elements is replaced with the SAP CAP compliant format using `/** ... */` style comments and Required parameters are added to `package.json` for SAP CAP compliance.
+
+**Unsupported Features Folder:**  
+  A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud.
+
+**CDS File Formatting:**  
+  Formatting of CDS files is performed using `@sap/cds-lsp` to ensure consistent formatting across the entire CAP CDS project.
+
+**Calculation View Conversion:**  
+  Join, Aggregation, Union, and Projection operations in calculation views are converted into SAP Hana Cloud supported formats during migration.
+
+**Data Type Conversion:**  
+  The following data type conversions are done during migration in the respective files `.hdbtable`, `.hdbprocedure`, `.hdbfunction`, `.hdbdropcreatetable`, `.hdbtrigger`, `.hdblibrary`, `.hdbstructuredprivilege`, `.hdbview`, `.hdbindex`, `.hdbconstraint`, `.hdbtablefunction`, `.hdbsequence`:
+- ALPHANUM → NVARCHAR
+- TEXT → NCLOB
+- SHORTTEXT → NVARCHAR
+- CHAR → VARCHAR
+- BINTEXT → NCLOB
+
+**Cross Container Access and Schema Configuration:** 
+  Cross container access and schema configuration are set up in the `mta.yaml` file to enable required access and integration between containers during migration.
+
+**SAP HANA CDS Access Policy entity:**
+Not supported in CAP CDS hence it is removed.
