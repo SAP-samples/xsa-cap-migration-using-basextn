@@ -14,7 +14,7 @@ The following features and changes have been applied as part of the project conf
 **HANA native artifacts:**
 
 such as `hdbtable`, `hdbcalculationviews`, `hdbview`, and `hdbfunctions` are not directly read by CDS. Make the Object Known to CDS, proxy files are created with certain limitations.  
-  _For more information, refer to the [SAP CAP Documentation](https://help.sap.com/docs/HANA_Cloud)._
+  _For more information, refer to the [SAP CAP Documentation](https://cap.cloud.sap/docs/advanced/hana#make-the-object-known-to-cds).
 
 **HANA Native Artifact Conversion: .hdbcds to CAP CDS**
 
