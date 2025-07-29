@@ -204,6 +204,8 @@ And the following additional properties:
 </p>
 
 4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials. Click on the Next button.
+> [!NOTE]
+> Entered User should have select permission to M_ALL_CONTAINERS, M_ALL_CONTAINER_SCHEMAS and respective schema permission
 	
 <p align="center">
 <img width="545" alt="Login" src="images\Destinations.png">
