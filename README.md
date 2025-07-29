@@ -205,8 +205,11 @@ And the following additional properties:
 
 4. Enter the user credentials for the SAP HANA Database HDI User—username and password—into their respective fields. Then, click the login button to authorize these credentials. Click on the Next button.
 > [!NOTE]
-> Entered User should have select permission to M_ALL_CONTAINERS, M_ALL_CONTAINER_SCHEMAS and respective schema permission
-	
+> The entered user must be granted SELECT permission on M_ALL_CONTAINERS, M_ALL_CONTAINER_SCHEMAS, as well as the corresponding HDI container schemas to access the required metadata and data objects
+```
+GRANT SELECT ON "_SYS_DI"."M_ALL_CONTAINERS" TO <USER_NAME>;
+GRANT SELECT ON "_SYS_DI"."M_ALL_CONTAINER_SCHEMAS" TO <USER_NAME>';
+```	
 <p align="center">
 <img width="545" alt="Login" src="images\Destinations.png">
 </p> 
