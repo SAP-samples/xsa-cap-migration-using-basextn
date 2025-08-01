@@ -1,0 +1,30 @@
+PROCEDURE "sp_join_orders_payments" (
+    OUT resultTable TABLE (
+        order_id        NVARCHAR(20),
+        order_date      DATE,
+        customer_id     NVARCHAR(20),
+        paymentid      NVARCHAR(20),
+        paymentdate    DATE,
+        amount          DECIMAL(15,2),
+        paymentmethod  NVARCHAR(50),
+        paymentstatus  NVARCHAR(50)
+    )
+)
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+AS
+BEGIN
+    resultTable = 
+        SELECT 
+            o."order_id" as ORDER_ID,
+            o."order_date" as ORDER_DATE,
+            o."customer_id" as CUSTOMER_ID,
+            p."PAYMENTID" as PAYMENTID,
+            p."PAYMENTDATE" as PAYMENTDATE,
+            p."AMOUNT" as AMOUNT,
+            p."PAYMENTMETHOD" as PAYMENTMETHOD,
+            p."PAYMENTSTATUS" as PAYMENTSTATUS
+        FROM "VT_ORDERS" as o
+        JOIN "VTPOC_DEMO_PAYMENTS" as  p
+        ON o."order_id" = p."ORDERID";
+END;

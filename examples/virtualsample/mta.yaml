@@ -1,0 +1,55 @@
+_schema-version: 3.3.0
+ID: virtualsample
+description: A simple CAP project.
+version: 1.0.0
+modules:
+  - name: virtualsample-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: virtualsample-db
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+      instances: 1
+    build-parameters:
+      builder: npm-ci
+  - name: virtualsample-db-deployer
+    type: hdb
+    path: gen/db
+    requires:
+      - name: virtualsample-db
+        properties:
+          TARGET_CONTAINER: ~{hdi-container-name}
+      - name: cross-container-service-1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_1
+          service: ~{the-service-name}
+    parameters:
+      buildpack: nodejs_buildpack
+resources:
+  - name: virtualsample-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-container-name: ${service-name}
+  - name: cross-container-service-1
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: HDI_UPS
+    properties:
+      the-service-name: ${service-name}
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production

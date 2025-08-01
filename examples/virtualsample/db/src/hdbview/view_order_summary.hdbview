@@ -1,0 +1,14 @@
+VIEW view_order_summary AS
+SELECT
+    o."order_id" as ORDER_ID,
+    o."order_date" as ORDER_DATE,
+    c."customer_name" as CUSTOMER_NAME,
+    p."product_name" as PRODUCT_NAME,
+    i."quantity" as QUANTITY,
+    p."unit_price" as UNIT_PRICE,
+    i."quantity" * p."unit_price" AS TOTAL_AMOUNT
+FROM
+    "VT_ORDERS" as o
+JOIN "VT_CUSTOMERS" as c ON o."customer_id" = c."customer_id"
+JOIN "VT_ORDER_ITEMS" as i ON o."order_id" = i."order_id"
+JOIN "VT_PRODUCTS" as p ON i."product_id" = p."product_id";

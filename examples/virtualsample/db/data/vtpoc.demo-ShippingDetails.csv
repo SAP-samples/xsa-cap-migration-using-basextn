@@ -1,0 +1,3 @@
+shippingId,order_order_id,shippingDate,shippingMethod,shippingStatus
+S001,O1001,2025-05-30,Standard,Delivered
+S002,O1002,2025-06-03,Express,In Transit
