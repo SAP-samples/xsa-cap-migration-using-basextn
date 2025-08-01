@@ -1,0 +1,23 @@
+PROCEDURE sp_generate_order_summary ()
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+AS
+BEGIN
+    -- Optional: clear previous summary data
+    DELETE FROM VTPOC_DEMO_ORDER_SUMMARY;
+
+    INSERT INTO VTPOC_DEMO_ORDER_SUMMARY
+    SELECT
+    o."order_id" AS "ORDER_ID",
+    o."order_date" AS "ORDER_DATE",
+    c."customer_name" AS "CUSTOMER_NAME",
+    p."product_name" AS "PRODUCT_NAME",
+    i."quantity" AS "QUANTITY",
+    p."unit_price" AS "UNIT_PRICE",
+    i."quantity" * p."unit_price" AS "TOTAL_AMOUNT"
+    FROM
+        "VT_ORDERS" o
+    JOIN "VT_CUSTOMERS" c ON o."customer_id" = c."customer_id"
+    JOIN "VT_ORDER_ITEMS" i ON o."order_id" = i."order_id"
+    JOIN "VT_PRODUCTS" p ON i."product_id" = p."product_id";
+END;

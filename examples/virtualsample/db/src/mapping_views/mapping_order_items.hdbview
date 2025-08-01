@@ -1,0 +1,6 @@
+VIEW vtpoc_demo_mapping_order_items AS SELECT
+"order_item_id" as ORDER_ITEM_ID,
+"order_id" as ORDER_ID,
+"product_id" as PRODUCT_ID,
+"quantity" as QUANTITY
+FROM "VT_ORDER_ITEMS"

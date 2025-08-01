@@ -82,7 +82,9 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
    
 1. Creating proxy cds for cross container schema
    
-2. Following Artifacts are not currently supported '.hdbreptask', '.hdbvirtualtable'.
+2. Following Artifacts are not currently supported '.hdbreptask'.
+   
+3. For Virtual table, refer [VirtualTable.md](VirtualTable.md)
 
 ## Requirements
 - XS Advanced on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.

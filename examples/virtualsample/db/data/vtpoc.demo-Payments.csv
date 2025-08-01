@@ -1,0 +1,3 @@
+paymentId,orderId,paymentDate,amount,paymentMethod,paymentStatus
+P001,O1001,2025-06-01,450.00,Credit Card,Completed
+P002,O1002,2025-06-04,150.00,PayPal,Pending
