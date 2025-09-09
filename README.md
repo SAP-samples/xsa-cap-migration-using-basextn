@@ -72,7 +72,7 @@ SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premis
 
 
 <p align="center">
-<img src="images\SolutionDiagramNew.png">
+<img src="images\SAPHAMASDA.png">
 </p>
 
 ## Features Currently supported in SAP HANA Application Migration Assistant:
