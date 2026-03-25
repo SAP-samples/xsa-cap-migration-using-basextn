@@ -1,4 +1,4 @@
-# Data Migration Configuration BAS
+# Data Migration Configuration (VS Code)
 Migrating from SAP HANA database to SAP HANA Cloud requires a dedicated user in your SAP HANA source database.
 A dedicated user is required for the migration to run for which the user must be created or necessary privileges must be granted to an existing user in your SAP HANA source database. Follow the below steps to assign the privileges:
 
@@ -94,40 +94,54 @@ Once the necessary privileges are assigned, follow the below steps:
 </p>
 
 
-3. In the Data Source Page of the wizard, choose the destination that you previously created from the Dropdown menu as shown below:
+3. **Enter Source System Details**
 
-<p align="center">
-<img src="images\Destinations_DM.png" width="600" height="400">
-</p>
-
-
-4. Enter the user credentials for the SAP HANA Database Migration User – username and password – into their respective fields. Hit the login button to authorize these credentials and verify if all required privileges are granted for this Migration User. The Next button will be enabled only if all the privileges mentioned in the above step are assigned. 
-
-<p align="center">
-<img src="images\UserCredDM.png" width="600" height="350">
-</p>
-
-
-5. To proceed, click on the next button.
-
-6. In the Data Migration Configuration Page of the wizard, select the Data migration configuration sql file from the drop down menu, which would have been created as part of your migrated projects.
+   3.1. **Enter Host and Port Details**
+   - **Enter SAP HANA Host Name**: SAP HANA host name or IP address
+   - **Enter SAP HANA Port Number**: SAP HANA port number (typically 3XX15 for tenant databases)
    
-   **NOTE**:During migration, separate data migration configuration files will be created for each schema.
+   3.2. **Enter Database Credentials**
+   - **Enter the SAP HANA Database Migration User Name**: Migration user username
+   - **Enter the SAP HANA Database Migration User Password**: Migration user password
+   
+   > [!NOTE]
+   > SAP HANA Database Migration User [Procedure to create migration user](https://help.sap.com/docs/SAP_HANA_PLATFORM/58d81eb4c9bc4899ba972c9fe7a1a115/2786447387df41f69a0dad1cc2973e95.html#procedure)
+
+   3.3. **Click Login** to authenticate
+
+   <p align="center">
+   <img src="images/loginvsc.png" width="600">
+   </p>
+
+   3.4. **Verify Connection**
+
+   - Once authenticated, you'll see a success message. The Next button will be enabled only if all the privileges mentioned in the above step are assigned.
+
+   <p align="center">
+   <img src="images/loginEnabled.png" width="600">
+   </p>
+
+
+4. To proceed, click on the **next** button.
+
+5. In the Data Migration Configuration Page of the wizard, select the Data migration configuration sql file from the drop down menu, which would have been created as part of your migrated projects.
+   
+   **NOTE** During migration, separate data migration configuration files will be created for each schema.
 
 <p align="center">
 <img src="images\sqlDM.png" width="750" height="400">
 </p>
 
 
-7. Enter the SAP HANA cloud target schema in the next field.
+6. Enter the SAP HANA cloud target schema in the next field.
 
 <p align="center">
 <img src="images\schemaDM.png" width="750" height="400">
 </p>
 
-8. Click on the finish button.
+7. Click on the finish button.
 
-9. Once the finish button is clicked, the content of the DataMigration.sql file in your project is executed and the pop-up message, "Data migration Configuration completed successfully" appears if there are no errors.
+8. Once the finish button is clicked, the content of the DataMigration.sql file in your project is executed and the pop-up message, "Data migration Configuration completed successfully" appears if there are no errors.
 
 <p align="center">
 <img src="images\schemaDM2.png" width="450" height="150">
