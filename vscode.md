@@ -3,7 +3,6 @@
 This guide provides step-by-step instructions for migrating SAP HANA XS Advanced applications to SAP Cloud Application Programming Model (CAP) using Visual Studio Code with the SAP HANA Application Migration extension.
 
 ## Table of Contents
-- [Solution Architecture](#solution-architecture)
 - [Prerequisites](#prerequisites)
 - [Installation and Setup](#install-sap-hana-application-migration-extension)
 - [Migration Steps](#migration-steps)
@@ -16,14 +15,6 @@ This guide provides step-by-step instructions for migrating SAP HANA XS Advanced
 - [Next Steps](#next-steps)
 
 ---
-
-## Solution Architecture
-
-The following diagram illustrates the migration architecture when using Visual Studio Code:
-
-   <p align="center">
-   <img src="images/SAP_HAMA.png" alt="VS Code Migration Architecture">
-   </p>
 
 ## Prerequisites
 
