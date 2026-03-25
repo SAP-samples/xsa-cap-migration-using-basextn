@@ -34,8 +34,8 @@ Before starting the migration process in Visual Studio Code, ensure you have the
 | Component | Version | Purpose |
 |-----------|---------|---------|
 | **Visual Studio Code** | 1.104 or higher | Development IDE |
-| **Java (JDK)** | 17 or higher | Required for HANA deployment tools |
-| **Node.js** | 20 or higher | Required for CAP development |
+| **Java (JDK)** | 17 or higher | Required for migration extension |
+| **Node.js** | 20 or higher | Required for migration extension |
 | **Python** | 3.10 to 3.13 | Required for migration extension |
 | **SAP Cloud Connector**(Optional) | Latest | Connects local environment to on-premise HANA|
 
