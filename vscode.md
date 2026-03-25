@@ -258,7 +258,7 @@ Follow [README.md - Step 7: Deployment](README.md#step-7-deployment-of-the-migra
 
 ## Next Steps
 
-- **Data Migration**: See [DataMigration.md](DataMigration.md) for data migration procedures
+- **Data Migration**: See [DataMigration.md](DataMigration-VSCode.md) for data migration procedures
 - **Deployment**: Deploy artifacts to SAP HANA Cloud
 - **Testing**: Validate migrated functionality
 - **Optimization**: Review and optimize generated code
