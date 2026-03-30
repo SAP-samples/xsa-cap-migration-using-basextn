@@ -103,9 +103,6 @@ Once the necessary privileges are assigned, follow the below steps:
    3.2. **Enter Database Credentials**
    - **Enter the SAP HANA Database Migration User Name**: Migration user username
    - **Enter the SAP HANA Database Migration User Password**: Migration user password
-   
-   > [!NOTE]
-   > SAP HANA Database Migration User [Procedure to create migration user](https://help.sap.com/docs/SAP_HANA_PLATFORM/58d81eb4c9bc4899ba972c9fe7a1a115/2786447387df41f69a0dad1cc2973e95.html#procedure)
 
    3.3. **Click Login** to authenticate
 
