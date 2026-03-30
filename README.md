@@ -1,18 +1,18 @@
-# Migration of SAP HANA XS Advanced To SAP Cloud Application Programming Model Using SAP HANA Application Migration Assistant
+# Migration of SAP HANA XS Advanced To SAP Cloud Application Programming Model Using SAP HANA Application Migration
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/xsa-cap-migration-using-basextn)](https://api.reuse.software/info/github.com/SAP-samples/xsa-cap-migration-using-basextn)
 
-- [Migration of SAP HANA XS Advanced To SAP Cloud Application Programming Model Using SAP HANA Application Migration Assistant](#migration-of-sap-hana-xs-advanced-to-sap-cloud-application-programming-model-using-sap-hana-application-migration-assistant)
+- [Migration of SAP HANA XS Advanced To SAP Cloud Application Programming Model Using SAP HANA Application Migration Extension](#migration-of-sap-hana-xs-advanced-to-sap-cloud-application-programming-model-using-sap-hana-application-migration)
   - [Description](#description)
   - [Introduction](#introduction)
-  - [Features Currently supported in SAP HANA Application Migration Assistant:](#features-currently-supported-in-sap-hana-application-migration-assistant)
-  - [Features that are currently out of scope in SAP HANA Application Migration Assistant:](#features-that-are-currently-out-of-scope-in-sap-hana-application-migration-assistant)
-  - [Requirements](#requirements)
-  - [Where to Start](#where-to-start)
+  - [Features Currently supported in SAP HANA Application Migration Extension:](#features-currently-supported-in-sap-hana-application-migration-extension)
+  - [Features that are currently out of scope in SAP HANA Application Migration Extension:](#features-that-are-currently-out-of-scope-in-sap-hana-application-migration-extension)
+  - [Choose Your Development Platform](#choose-your-development-platform)
+  - [Migration Steps for SAP Business Application Studio / SAP Build](#migration-steps-for-sap-business-application-studio--sap-build)
   - [Step-1: Install and Configure the SAP Cloud Connector](#step-1-install-and-configure-the-sap-cloud-connector)
   - [Step-2: Setup an SAP BTP Destination to connect to the source system](#step-2-setup-an-sap-btp-destination-to-connect-to-the-source-system)
-  - [Step-3: Create a SAP Business Application Studio or SAP Build Devspace with the SAP HANA Application Migration Assistant Extension installed](#step-3-create-a-sap-business-application-studio-or-sap-build-devspace-with-the-sap-hana-application-migration-assistant-extension-installed)
-  - [Step-4: Migrate using the SAP HANA Application Migration Assistant](#step-4-migrate-using-the-sap-hana-application-migration-assistant)
+  - [Step-3: Create a SAP Business Application Studio or SAP Build Devspace with the SAP HANA Application Migration Extension Extension installed](#step-3-create-a-sap-business-application-studio-or-sap-build-devspace-with-the-sap-hana-application-migration-extension-installed)
+  - [Step-4: Migrate using the SAP HANA Application Migration Extension](#step-4-migrate-using-the-sap-hana-application-migration-extension)
   - [Step-5: Post Migration Changes](#step-5-post-migration-changes)
   - [Step-6: Service Layer Migration](#step-6-service-layer-migration)
     - [Conversion structure](#conversion-structure)
@@ -35,15 +35,15 @@
 
 
 ## Description
-The SAP HANA Application Migration Assistant allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database.
-In this enhanced version, the assistant performs:
+The SAP HANA Application Migration Extension allows users to migrate XS Advanced application to a SAP CAP application with SAP HANA Cloud as a database.
+In this enhanced version, the Extension performs:
 
 **Automated Conversion of Database Artifacts:** Source XS Classic Repository  database objects (such as .hdbcds, .hdbtable, .hdbview, etc.) are transformed into their corresponding SAP CAP compliant database artifacts (e.g., .cds models), with naming adapted to SAP HANA Cloud conventions.
 
-**Service Layer Migration via Generative AI:** Using GenAI, the assistant analyzes `.xsodata`, `.xsjs`, and `.xsjslib` files to generate corresponding service.cds, service.js, and custom handler implementations under the CAP srv/ layer. This accelerates the migration of service logic while preserving structure, routes, and functional behavior where possible.
+**Service Layer Migration via Generative AI:** Using GenAI, the Extension analyzes `.xsodata`, `.xsjs`, and `.xsjslib` files to generate corresponding service.cds, service.js, and custom handler implementations under the CAP srv/ layer. This accelerates the migration of service logic while preserving structure, routes, and functional behavior where possible.
 
 > [!CAUTION]
-> As generative AI conversion is not guaranteed to be 100% accurate, human intervention is required post-migration to validate, refine, and productionize the application logic and service definitions.
+> Ensure the files in your project contain no sensitive or confidential information, as they will be processed by a Large Language Model (LLM). Review the converted project files carefully before deployment to verify correctness, security, and compliance. As generative AI conversion is not guaranteed to be 100% accurate, human intervention is required post-migration to validate, refine, and productionize the application logic and service definitions.
 
 In this sample, only conversion of Source XS Advanced database artifacts to the corresponding target SAP CAP compliance database artifacts are listed.
 
@@ -68,17 +68,17 @@ SAP HANA Interactive Education or [SHINE](https://github.com/SAP-samples/hana-sh
   - Analytical Privilege
   - Usage of Table Functions in CDS views
 
-SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the SAP Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Assistant.
+SHINE follows the XS Advanced Programming Model(XSA) and uses SAP HANA on-premise for the database. This article describes the steps to be followed to Migrate this Demo Application from XS Advanced to the SAP Cloud Application Programming Model(CAP) with SAP HANA Cloud as the database using the SAP HANA Application Migration Extension.
 
 
 <p align="center">
 <img src="images\SAPHAMASDA.png">
 </p>
 
-## Features Currently supported in SAP HANA Application Migration Assistant:
-For a detailed list of the features supported by the SAP HANA Application Migration Assistant, please refer to the [supportedFeatures](supportedFeatures.md) link.
+## Features Currently supported in SAP HANA Application Migration Extension:
+For a detailed list of the features supported by the SAP HANA Application Migration Extension, please refer to the [supportedFeatures](supportedFeatures.md) link.
 
-## Features that are currently out of scope in SAP HANA Application Migration Assistant:
+## Features that are currently out of scope in SAP HANA Application Migration Extension:
    
 1. Creating proxy cds for cross container schema
    
@@ -86,7 +86,23 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
    
 3. For Virtual table, refer [VirtualTable.md](VirtualTable.md)
 
-## Requirements
+## Choose Your Development Platform
+
+The SAP HANA Application Migration extension supports two development platforms:
+
+### Option 1: SAP Business Application Studio / SAP Build (Cloud-based)
+
+**Follow the steps below in this README** for SAP Business Application Studio / SAP Build.
+
+### Option 2: Visual Studio Code (Local Development)
+
+**For Visual Studio Code users:** Please refer to **[vscode.md](vscode.md)** for complete installation, configuration, and migration steps specific to VS Code.
+
+---
+
+## Migration Steps for SAP Business Application Studio / SAP Build
+
+### Requirements for SAP Business Application Studio
 - XS Advanced on-premise database source system with the [SHINE](https://github.com/SAP-samples/hana-shine-xsa.git) content. Specifically the schema name of the deployed containers.
 - SAP Business Technology Platform subaccount with the following 
   - Service instances:
@@ -96,13 +112,13 @@ For a detailed list of the features supported by the SAP HANA Application Migrat
     - **SAP Business Application Studio** or **SAP Build.**  SAP Build is required if you want to convert the service layer as well, since GenAI capabilities are only available in SAP Build plans.
 - SAP Cloud Connector
 
-## Where to Start
-To successfully migrate the SHINE sample application using the SAP HANA Application Migration Assistant, follow the steps below:
+### Where to Start
+To successfully migrate the SHINE sample application using the SAP HANA Application Migration Extension, follow the steps below:
 
 1. Install and Configure the SAP Cloud Connector.
 2. Setup an SAP BTP Destination to connect to the source system.
-3. Create a Dev Space in either SAP Business Application Studio or SAP Build with SAP HANA Application Migration Assistant extension installed.
-4. Migrate using the SAP HANA Application Migration Assistant.
+3. Create a Dev Space in either SAP Business Application Studio or SAP Build with SAP HANA Application Migration Extension installed.
+4. Migrate using the SAP HANA Application Migration Extension.
 5. Post Migration Changes.
 6. Deployment of the Migrated database artifacts.
 
@@ -163,7 +179,7 @@ And the following additional properties:
 	<img src="images\destination3.png" width="600" height="400">
 </p>
 
-## Step-3: Create a SAP Business Application Studio or SAP Build Devspace with the SAP HANA Application Migration Assistant Extension installed  
+## Step-3: Create a SAP Business Application Studio or SAP Build Devspace with the SAP HANA Application Migration Extension installed  
 	
 1. In the SAP BTP subaccount where you created the destination, create a subscription to SAP Business Application Studio (BAS) or SAP Build. Choose SAP Build if you intend to convert the Service Layer. The correct way to [subscribe to SAP Build Code](https://help.sap.com/docs/build_code/d0d8f5bfc3d640478854e6f4e7c7584a/07698d7c31284e4db370acdf017cfd14.html?version=SHIP) is using the booster and not the manual setup.
 
@@ -178,7 +194,7 @@ And the following additional properties:
 	<img src="images\build_lobby.png">
 </p> 
    
-4. Select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration Assistant` Extension to help with migration, as well as the `SAP Hana Tools` Extension which will be required later for deployment. Finally, click on "Create Dev Space".
+4. Select "Create Dev Space". Assign a desired name to your Dev Space and select the "Full Stack Cloud Application" type. Then, choose the `SAP HANA Application Migration` Extension to help with migration, as well as the `SAP Hana Tools` Extension which will be required later for deployment. Finally, click on "Create Dev Space".
    
 5. Wait for the status of your newly created Dev Space to change to "Running". Once it's running, you can open it by clicking on the name of the Dev space that you just created.
    
@@ -186,13 +202,13 @@ And the following additional properties:
    
 7. Clone the XS Advanced Source application to this folder using the Terminal.
    
-8. Once the folder opens, you can select the SAP HANA Application Migration Assistant from the Command Palette (You can access the Command Palette from View -> Command Palette).
+8. Once the folder opens, you can select the SAP HANA Application Migration Extension from the Command Palette (You can access the Command Palette from View -> Command Palette).
 
-## Step-4: Migrate using the SAP HANA Application Migration Assistant
+## Step-4: Migrate using the SAP HANA Application Migration Extension
 
-1. Open the the Command Palette and type "SAP HANA Application Migration Assistant" and select the command when it appears.
+1. Open the the Command Palette and type "SAP HANA Application Migration Extension" and select the command when it appears.
 	
-2. When the Migration Assistant Wizard opens, select the migration path. Since we are migrating from XS Advanced to CAP, select `XSA to CAP` as your migration path.		
+2. When the Migration Extension Wizard opens, select the migration path. Since we are migrating from XS Advanced to CAP, select `XSA to CAP` as your migration path.		
 
 <p align="center">
   <img width="536" alt="HomeScreen" src="images\homescreen.png">
@@ -261,7 +277,7 @@ GRANT SELECT ON "_SYS_DI"."M_ALL_CONTAINER_SCHEMAS" TO <USER_NAME>';
 </p>
 
 ## Step-5: Post Migration Changes
-Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the SAP HANA Application Migration Assistant.
+Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the SAP HANA Application Migration Extension.
  1. For the hana-shine-xsa project, make the following changes:
     - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
     - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
@@ -332,10 +348,10 @@ Once the project is created, there are some adjustments we need to make manually
 ## Step-6: Service Layer Migration
 
 > [!CAUTION]
-> While the assistant automates a large portion of the migration process, the converted output is not guaranteed to be 100% runnable or semantically equivalent. Manual validation and adjustments are essential to reach production readiness.
+> While the extension automates a large portion of the migration process, the converted output is not guaranteed to be 100% runnable or semantically equivalent. Manual validation and adjustments are essential to reach production readiness.
 
 ### Conversion structure
-The Gen-AI Migration Assistant converts SAP XS files and components into their equivalent SAP CAP service definitions and handlers, preserving structure and logic for ease of validation and enhancement.
+The Gen-AI Migration extension converts SAP XS files and components into their equivalent SAP CAP service definitions and handlers, preserving structure and logic for ease of validation and enhancement.
 
 **Converted File Mapping**
 
@@ -434,7 +450,7 @@ The following steps are critical to ensure the converted project builds and runs
 
 #### custom-service.js
 - Ensure all custom logic handlers are correctly implemented and bound.
-- Replace or refactor placeholder logic (if any) added by the migration assistant.
+- Replace or refactor placeholder logic (if any) added by the migration extension.
 
 #### handlers
 
@@ -490,7 +506,7 @@ The following steps are critical to ensure the converted project builds and runs
 5. Right click on the mtar file inside mta_archives folder and select `Deploy MTA Archive`.
 
 ## Data Migration
-For migration of data using the SAP HANA Application Migration Assistant, please refer to the [DataMigration](DataMigration.md) document.
+For migration of data using the SAP HANA Application Migration Extension, please refer to the [DataMigration](DataMigration.md) document.
 
 ## Learning Resources
 1. [The Self-Service Migration Tool for SAP HANA Cloud](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/self-service-migration-for-sap-hana-cloud-tool).
