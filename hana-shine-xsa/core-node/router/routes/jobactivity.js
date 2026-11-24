@@ -28,7 +28,12 @@ module.exports = function() {
 	// method will insert Job Data into Job table
 	app.post('/create',jsonParser,function(req, res) {
 			logger = req.loggingContext.getLogger('/jobactivity/create');
-			var jname = req.body.jobname;
+			var jname = encodeURI(req.body.jobname);
+			if (!(util.isAlphaNumeric(jname))) {
+				logger.error('Invalid job name');
+				res.status(400).json({message: 'Invalid Job Name'});
+				return;
+			}
 			var jobid;
 			var timestamp;
 			var accessToken;
@@ -61,10 +66,11 @@ module.exports = function() {
 						jobid = results[0].NJOBID;
 						timestamp = new Date().toISOString();
 						//create job
-						var query = "INSERT INTO \"Jobs.Data\" VALUES('" + jobid.toString() + "','" + jname + "','" + timestamp + "')";
+						var query = 'INSERT INTO "Jobs.Data" VALUES(?,?,?)';
+						var params = [jobid.toString(), jname, timestamp];
 						db.preparePromisified(query)
 						.then(statement => {
-							db.statementExecPromisified(statement, [])
+							db.statementExecPromisified(statement, params)
 							.then(results => {
 								console.log("++++ Record inserted .....");
 								res.status(200).json({status: 'record inserted into shine'});
