@@ -279,68 +279,8 @@ GRANT SELECT ON "_SYS_DI"."M_ALL_CONTAINER_SCHEMAS" TO <USER_NAME>';
 ## Step-5: Post Migration Changes
 Once the project is created, there are some adjustments we need to make manually as these are not currently handled by the SAP HANA Application Migration Extension.
  1. For the hana-shine-xsa project, make the following changes:
-    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder from `core-db/src/data` folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
-    - Delete `synonyms/sys_rt.hdbsynonym` from `core-db/src` folder.
-    - In `core-db/cds/data/POViews.cds` file, change the alias `ProductName` to `PRODUCTNAME`.
-    - Replace the code in the `mta.yaml` with the below code. Replace `<Project Name>` with the name of your project.
-   
-      ```
-      _schema-version: 3.3.0
-      ID: <Project Name>
-      version: 1.0.0
-      description: A migrated CAP Project.
-      parameters:
-        enable-parallel-deployments: true
-      build-parameters:
-        before-all:
-          - builder: custom
-            commands:
-              - npm ci
-              - npx cds build --production
-      modules:
-        - name: <Project Name>-deployer0
-          type: hdb
-          path: gen/core-db
-          deployed-after:
-            - <Project Name>-deployer1
-          parameters:
-            buildpack: nodejs_buildpack
-          requires:
-            - name: <Project Name>-db0
-              properties:
-                TARGET_CONTAINER: ~{hdi-container-name}
-            - name: <Project Name>-db1
-              group: SERVICE_REPLACEMENTS
-              properties:
-                key: hdi-user-service
-                service: ~{user-container-name}
-        - name: <Project Name>-deployer1
-          type: hdb
-          path: gen/user-db
-          parameters:
-            buildpack: nodejs_buildpack
-          requires:
-            - name: <Project Name>-db1
-      resources:
-        - name: <Project Name>-db0
-          type: com.sap.xs.hdi-container
-          parameters:
-            service: hana
-            service-plan: hdi-shared
-          properties:
-            hdi-container-name: ${service-name}
-        - name: <Project Name>-db1
-          type: com.sap.xs.hdi-container
-          parameters:
-            service: hana
-            service-plan: hdi-shared
-            service-name: <Project Name>-db1
-          properties:
-            user-container-name: ${service-name}
-      ```
-      
-      **Note:**
-      In the Shine demo application, since we have multiple containers, we need to define service replacements in the above format to connect the containers. If the project has only one container, the `mta.yaml` file created by the extension should work as expected, and no manual changes are needed.
+    - A folder named `unsupported_feature` has been created by the extension to contain file extensions that are not supported in SAP HANA Cloud. Delete this unsupported_feature folder. For more information on the unsupported features, please refer to this [link](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/design-time-content-compatibility).
+    - The migrated `mta.yaml` contains modules for the Node.js service, the approuter, and the xsuaa resource. For database-only deployment, these are not required and can be removed. In the SHINE demo application, since we have multiple containers, service replacements are needed to connect them, this is already configured by the extension, so no manual changes to the deployer modules are required.
  2. Currently, changes to Reptask and Replication artifacts are not covered. You will need to modify these manually. Unsupported types and functions in the calculation view such as "CE_FUNCTION", "CACHE", etc., need to be noted. Please refer to the [SAP HANA Cloud Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/checks-performed-by-migration-tool) for more details on how to handle these.
  3. Series entity is not supported in Hana Cloud so they will be removed by the extension. Please check [Migration Documentation](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/series-data%22) for more information.
  4. For HdbSynonym, HdbSynonymconfig and Hdbrole files, please check target object parameters before deployment.

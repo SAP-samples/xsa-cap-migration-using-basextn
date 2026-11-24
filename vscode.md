@@ -257,6 +257,33 @@ cds build --profile production
 
 Follow [README.md - Step 7: Deployment](README.md#step-7-deployment-of-the-migrated-database-artifacts)
 
+**Note: Follow the below steps to connect to on-prem hana from vscode without the cloud connector**
+```
+sudo apt-get install socat -y
+
+sudo vi /etc/systemd/system/hana1-proxy.service
+
+[Unit]
+Description=HANA1 TCP Proxy
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/socat \
+    TCP-LISTEN:<hana-port>,fork,reuseaddr \
+    TCP:<hana-host>:<hana-port>
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+
+sudo systemctl start hana1-proxy.service
+
+sudo systemctl enable hana1-proxy.service
+```
+
 ---
 
 ## Next Steps
