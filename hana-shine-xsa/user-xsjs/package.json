@@ -1,10 +1,10 @@
 {
     "engines": {
-        "node": "18.x || 20.x"
+        "node": "22.x || 24.x"
     },
     "dependencies": {
-        "@sap/xsenv": "5.1.0",
-        "@sap/async-xsjs": "2.0.0"
+        "@sap/xsenv": "6.2.2",
+        "@sap/async-xsjs": "3.0.8"
     },
     "files": [],
     "main": "server.js",
@@ -12,5 +12,5 @@
     "scripts": {
         "start": "node --experimental-vm-modules server.js"
     },
-    "version": "1.9.6"
+    "version": "1.9.9"
   }
